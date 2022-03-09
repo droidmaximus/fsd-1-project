@@ -1,0 +1,37 @@
+main{
+    color: white ;
+}
+
+ul > li {
+    display: inline-block;
+    margin-left: 150px;
+}
+
+ul > li > div > ul > li {
+    display: inline-block;
+    margin-left: -4px;
+}
+
+.profile{
+    margin-left: 535px;
+    margin-top: 70px;
+    margin-right: auto;
+    width: 200px;
+    height: 200px;
+}
+.colorfill{
+    background-color: #55d6aa;
+    width: 100%;
+    height: auto;
+}
+.level{
+    margin-top: -140px;
+}
+.content{
+    margin-top: 140px;
+    
+}
+.info{
+    word-wrap: break-word;
+    width: 100px;
+}
