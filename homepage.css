@@ -24,9 +24,9 @@ header::after {
 #my_courses {
   margin-left: 20px;
   padding-left: 10px;
-  color: #fff;
+  color: beige;
   font-style: italic;
-  
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .Course {
@@ -60,9 +60,9 @@ ul > li {
 #available_courses {
   margin-left: 20px;
   padding-left: 10px;
-  color: #fff;
+  color: beige;
   font-style: italic;
-  
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 #search {
@@ -70,6 +70,19 @@ ul > li {
   margin-top:30px;
   color: beige;
   font-size: large;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#opt {
+    border: 5px #0E1016;
+    font-size: large;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#category {
+    border: 5px #0E1016;
+    font-size: large;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 .logo {
   float: left;
