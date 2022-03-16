@@ -26,6 +26,23 @@
         </div>
     </header>
     <main>
+        <div class="modalform">
+            <div class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="close">&times;</span>
+                        <h2>Edit Profile</h2>
+                    </div>
+                    <div class="modal-body">
+                        <form action="profile.php" method="post">
+                            <div class="input-group">
+                                <label for="name">Name</label>
+                                <input type="text" name="name" id="name" value="User1">
+                            </div>
+                            <div class="input-group">
+                                <label for="mailid">Mail ID</label>
+                                <input type="text" name="mailid" id="mailid" value="
+        </div>
         <div class="colorfill">
             <img src="defaultpfp.png" alt="defaultpfp" class="profile">
             <div class="level">
@@ -33,7 +50,10 @@
             </div>
         </div>
         <div class="content">
-            <h2 style="text-align: center;">User1</h2>
+            <ul id="titlebar">
+                <li><center><h2 style="text-align: center;">User1</h2></center></li>
+                <li><button class="button" onclick="window.location.href='profile.html'" style="margin-left: 250px;">Edit Profile</button></li>
+            </ul>
             <br>
             <h2 style="text-align: center;">
                 <b>Badges Earned</b>
