@@ -1,4 +1,8 @@
+/*Saathvika Bandi
+S20200010180
+Group-23*/
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:400,600');
+
 body {
 	margin: 0;
 	background: #000;
@@ -8,7 +12,7 @@ body {
 
 .container {
 	width: 80%;
-	margin: 0 auto;
+	margin: 0;
 }
 
 header {
@@ -19,6 +23,23 @@ header::after {
   content: '';
   display: table;
   clear: both;
+}
+
+#carouselExaxpleSlidesOnly {
+  height : 500px;
+  width:80%;
+}
+
+.carousel slide .carousel-inner .carousel-item {
+  height : 10px;
+  width:80%;
+}
+
+#dash{
+  text-align: center;
+  color: beige;
+  font-style: italic;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 #my_courses {
@@ -65,10 +86,19 @@ ul > li {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+#contests{
+  margin-left: 20px;
+  padding-left: 10px;
+  color: beige;
+  font-style: italic;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 #search {
   margin-left:300px;
   margin-top:30px;
   color: beige;
+  float: middle;
   font-size: large;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -207,6 +237,8 @@ button {
 }
 
 .flip-card-back {
+  /* padding-top: 20px; */
+  text-align: centre;
   background-color: #55d6aa;
   color: #0E1016; 
   transform: rotateY(180deg);
