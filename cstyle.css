@@ -62,18 +62,25 @@ header::after {
 .circle {
   height: 50px;
   width: 50px;
+  border: 10px #55d6aa;
+  background-color: white;
+  border-radius: 50%;
+  margin:auto;
+  text-align: center;
+ 
+}
+.circle2 {
+  height: 50px;
+  width: 50px;
   background-color: #55d6aa;
   border-radius: 50%;
   margin:auto;
   text-align: center;
 }
-.bcircle {
-  height: 60px;
-  width: 60px;
-  background-color: #6855d6;
-  border-radius: 50%;
-  margin:auto;
-  text-align: center;
+
+.board{
+  height: 300px;
+  width: 300px;
 }
 .table{
   width:100%
@@ -85,6 +92,9 @@ th, td {
 }
 .inst-img{
   width :20px;
+}
+.dark-text{
+  color: #04a47b
 }
 .green-text{
   color:#55d6aa
