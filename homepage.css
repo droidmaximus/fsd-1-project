@@ -1,6 +1,3 @@
-/*Saathvika Bandi
-S20200010180
-Group-23*/
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:400,600');
 
 body {
@@ -11,8 +8,8 @@ body {
 }
 
 .container {
-	width: 80%;
-	margin: 0;
+	width: 95%;
+	margin-left: 50px;
 }
 
 header {
@@ -25,95 +22,6 @@ header::after {
   clear: both;
 }
 
-#carouselExaxpleSlidesOnly {
-  height : 500px;
-  width:80%;
-}
-
-.carousel slide .carousel-inner .carousel-item {
-  height : 10px;
-  width:80%;
-}
-
-#dash{
-  text-align: center;
-  color: beige;
-  font-style: italic;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-#my_courses {
-  margin-left: 20px;
-  padding-left: 10px;
-  color: beige;
-  font-style: italic;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-.Course {
-  border: 1px;
-  width: 200px;
-  height: 200px;
-  border:2px;
-  border-color: #000;
-  background-color: #ffffff;
-  line-height: 100px;
-  border-radius: 1cm;
-  color:#000;
-  text-align:center;
-  vertical-align: middle;
-}
-
-ul > li {
-  display: inline-block;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-.fill-div {
-  display: block;
-  height : 200px;
-  width: 200px;
-  color:coral;
-  text-align:center;
-}
-
-#available_courses {
-  margin-left: 20px;
-  padding-left: 10px;
-  color: beige;
-  font-style: italic;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-#contests{
-  margin-left: 20px;
-  padding-left: 10px;
-  color: beige;
-  font-style: italic;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-#search {
-  margin-left:300px;
-  margin-top:30px;
-  color: beige;
-  float: middle;
-  font-size: large;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-#opt {
-    border: 5px #0E1016;
-    font-size: large;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-#category {
-    border: 5px #0E1016;
-    font-size: large;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
 .logo {
   float: left;
 }
@@ -141,7 +49,6 @@ nav li {
   display: inline-block;
   margin-left: 70px;
   padding-top: 5px;
-
   position: relative;
 }
 
@@ -165,7 +72,6 @@ nav a::before {
   position: absolute;
   top: 0;
   width: 0%;
-
   transition: all ease-in-out 250ms;
 }
 
@@ -173,12 +79,258 @@ nav a:hover::before {
   width: 100%;
 }
 
-#register a:link,a:visited {
-  background-color: #0E1016;
-  color: beige;
-  text-decoration: none;
+
+ul > li {
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
+.fill-div {
+  display: block;
+  height : 200px;
+  width: 200px;
+  color:coral;
+  text-align:center;
+}
+
+
+/* search bar */
+#search {
+  color: #444;
+  font-size: small;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#opt {
+    border: 5px #444;
+    color :#fff;
+    font-size: small;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#category {
+    border: 5px #000;
+    font-size: small;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* Contests */
+
+@keyframes tostart {
+  75%{left:0;}
+  95%{left:-300%}
+  98%{left:-300%}
+  99%{left:0;}
+}
+@keyframes tonext {
+  75%{left:0;}
+  95%{left:100%}
+  98%{left:100%}
+  99%{left:0;}
+}
+@keyframes snap {
+  96%{scroll-snap-align: center;}
+  97%{scroll-snap-align: none;}
+  99%{scroll-snap-align: none;}
+  100%{scroll-snap-align: center;}
+}
+
+#contest {
+  max-width:10px;
+  margin:100 px auto;
+  padding:0 40px;
+  min-height: 100px;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  scrollbar-color: transparent transparent; /* thumb and track color */
+  scrollbar-width: 0px;
+}
+
+*::-webkit-scrollbar {
+  width: 0;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: transparent;
+  border: none;
+}
+
+* {
+  -ms-overflow-style: none;
+}
+
+.carousel {
+  margin-left:50px;
+  position:relative;
+  padding-top:40%;
+  filter: drop-shadow(0 0 10px #0003);
+  perspective: 100px;
+  width: 1200px;
+  min-height:200px;
+  border-width: 2 cm #fff;
+}
+
+.carousel__viewport {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  overflow-x: scroll;
+  counter-reset: item;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+}
+
+.carousel__slide {
+  position: relative;
+  flex: 0 0 100%;
+  width: 100%;
+  background-color: #444;
+  counter-increment: item;
+}
+
+.carousel__slide:nth-child(even) {
+  background-color: #444;
+}
+
+#carousel__slide1 {
+  background-image: url(guitar.jpg);background-position: 50 px;background-size: 1150px 450px;
+}
+
+#carousel__slide2 {
+  background-image: url(cube.jpg);background-position: 50 px;background-size: 1150px 450px;
+}
+
+#carousel__slide3 {
+  background-image: url(chess.jpg);background-position: 50 px;background-size: 1150px 450px;
+}
+.carousel__slide:before {
+  content: counter(item);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%,-40%,70px);
+  color: transparent;
+  font-size: 2em;
+}
+
+.carousel__snapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  scroll-snap-align: center;
+}
+
+@media (hover: hover) {
+  .carousel__snapper {
+    animation-name: tonext, snap;
+    animation-timing-function: ease;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+  }
+
+  .carousel__slide:last-child .carousel__snapper {
+    animation-name: tostart, snap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel__snapper {
+    animation-name: none;
+  }
+}
+
+.carousel:hover .carousel__snapper,
+.carousel:focus-within .carousel__snapper {
+  animation-name: none;
+}
+
+.carousel__navigation {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+}
+
+.carousel__navigation-list,
+.carousel__navigation-item {
+  display: inline-block;
+}
+
+.carousel__navigation-button {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: beige;
+  background-clip: content-box;
+  border: 0.25rem beige;
+  border-radius: 50%;
+  font-size: 0;
+  transition: transform 0.1s;
+}
+
+.carousel::before,
+.carousel::after,
+.carousel__prev,
+.carousel__next {
+  position: absolute;
+  top: 0;
+  margin-top: 37.5%;
+  width: 4rem;
+  height: 4rem;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  font-size: 0;
+  outline: 0;
+}
+
+.carousel::before,
+.carousel__prev {
+  left: -1rem;
+}
+
+.carousel::after,
+.carousel__next {
+  right: -1rem;
+}
+
+.carousel::before,
+.carousel::after {
+  content: '';
+  z-index: 1;
+  background-color: transparent;
+  background-size: 1.5rem 1.5rem;
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: #444;
+  font-size: 2.5rem;
+  line-height: 4rem;
+  text-align: center;
+  pointer-events: none;
+}
+
+/* Dashboard */
+#dash{
+  text-align: center;
+  color: beige;
+  font-style: italic;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* Button */
 button {
   height: 50px;
   width: 130px;
@@ -194,6 +346,45 @@ button {
   cursor: pointer;
 }
 
+/* Register button */
+#register a:link,a:visited {
+  background-color: #0E1016;
+  color: beige;
+  text-decoration: none;
+}
+
+/* Courses */
+.Course {
+  border: 1px;
+  width: 200px;
+  height: 200px;
+  border:2px;
+  border-color: #000;
+  background-color: #ffffff;
+  line-height: 100px;
+  border-radius: 1cm;
+  color:#000;
+  text-align:center;
+  vertical-align: middle;
+}
+
+#my_courses {
+  margin-left: 20px;
+  padding-left: 10px;
+  color: beige;
+  font-style: italic;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#available_courses {
+  margin-left: 50px;
+  padding-left: 10px;
+  color: beige;
+  font-style: italic;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* Flip cards */
 .flip-card {
   background-color: #0E1016;
   width: 200px;
@@ -242,4 +433,34 @@ button {
   background-color: #55d6aa;
   color: #0E1016; 
   transform: rotateY(180deg);
+}
+
+.main {
+  padding: 0px 10px;
+}
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #444;
+  display: block;
+  font-size: small;
+}
+.sidenav {
+  height: 100%;
+  width: 50px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #55d6aa;
+  overflow-x: hidden;
+  padding-top: 90px; 
 }
