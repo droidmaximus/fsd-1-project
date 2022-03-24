@@ -29,68 +29,18 @@ header::after {
 }
 .courseImage {
     width: 100%;
-    height: 100%;
-    margin: 0 auto; 
+    height: 100%; 
     
 }
 
-.btn{
-  position: absolute ;
-  top: 85%;
-  left: 90%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  background-color: #55d6aa;
-  color: black;
-  font-size: 28px;
-  padding: 12px 20px;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
-  border-radius: 2px;
-}
-
-.course-body{
-  margin-left: 50px;
-  float: left;
-}
-.course-body1{
-  margin-right: 20px;
-  float: right;
-  padding-top: 30px;
-  padding-right: 250px;
-
-}
-.circle {
-  height: 50px;
-  width: 50px;
-  border: 10px #55d6aa;
-  background-color: white;
-  border-radius: 50%;
-  margin:auto;
-  text-align: center;
- 
-}
-.circle2 {
-  height: 50px;
-  width: 50px;
-  background-color: #55d6aa;
-  border-radius: 50%;
-  margin:auto;
-  text-align: center;
-}
-
-.board{
-  height: 300px;
-  width: 300px;
-}
 .table{
-  width:100%
+  width:100%;
 }
 th, td {
   padding: 15px;
   text-align: center;
   vertical-align: center;
+  color: white;
 }
 .inst-img{
   width :20px;
@@ -114,7 +64,17 @@ ul > li {
 .logo {
   float: left;
 }
-
+.greenbg{
+  position: relative;
+  background-color: #55d6aa;
+  margin-left: 20%;
+  margin-right: 20%;
+  text-align: center;
+  color:#000;
+}
+vcbutton{
+  background-color: #55d6aa;
+}
 .pfp{
     display: inline-block;
     margin-left: 20px;
@@ -148,7 +108,9 @@ nav a {
   text-transform: uppercase;
   font-size: 14px;
 }
-
+.studTable{
+  color:white;
+}
 nav a:hover {
   color: #000;
 }
