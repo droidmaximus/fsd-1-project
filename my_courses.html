@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HowToBasic-Student-Dashboard</title>
+    <script src="login.js"></script>
+    <link rel="stylesheet" href="homepage.css">
+</head>
+<body>
+
+    <div class="sidenav">
+      <a href="my_courses.html" ><img src = "dashboard.jpg" style="height: 50px; width: 50px;"></a>
+      <a href="#"><img src = "account.jpg" style="height: 50px; width: 50px;"></a>
+      <a href="#"><img src = "badge_icon.jpg" style="height: 50px; width: 50px;"></a>
+      <a href="#"><img src = "notification.jpg" style="height: 50px; width: 50px;"></a>
+    </div>
+    <div id = "main">
+      <div class="container" >
+        <h2 class="logo">HowToBasic</h2>
+        <nav>
+         <ul>
+            <!-- Search bar -->
+            <li><div id="search">SEARCH :
+               <select name="Category" id="category" style="width: 100px;height: 20px;background-color: #444; color:#fff">
+                 <option value="none" selected id="opt">None</option>
+                 <option value="entertainment" id="opt">Entertainment</option>
+                 <option value="education" id="opt">Education</option>
+                 <option value="puzzles" id="opt">Puzzles</option> 
+               </select></div></li>
+             <li><a href="homepage.html" style="color:#444">Home</a></li>
+             <li><a href="#" style="color:#444">About</a></li>
+             <li><a href="#" style="color:#444">Contact</a></li>
+             <li><a href="#"><img class="pfp" src="defaultpfp.png"></a></li>
+           </ul>
+        </nav>
+      </div>
+      <div id = "content">
+        
+        <div id="my_courses">
+          <p id = "intro"> Welcome to the Dashboard, Saathvika...</p>
+          <h1>Enrolled Courses</h1>
+            <ul>
+               <li>
+                 <div class="flip-card">
+                 <div class="flip-card-inner">
+                     <div class="flip-card-front">
+                       <img src="cube.jpg" alt="Cube" id = "course_image">
+                     </div>
+                     <div class="flip-card-back">
+                       <h4>HowToBasic</h4>
+                       <h1>Rubix Cube</h1>
+                       <button id = "register" ><a href="#">Continue Learning...</a></button>
+                     </div>
+                 </div>
+               </div>
+             </li>
+             <li>
+               <div class="flip-card">
+                 <div class="flip-card-inner">
+                     <div class="flip-card-front">
+                       <img src="basketball.jpg" alt="Basket Ball" id = "course_image">
+                     </div>
+                     <div class="flip-card-back">
+                       <h4>HowToBasic</h4>
+                       <h1>Basket Ball</h1>
+                       <button id = "register" ><a href="#">Continue Learning...</a></button>
+                     </div>
+                 </div>
+               </div>
+             </li>
+           </ul>
+          </div>
+          <div id = "completed_courses">
+            <h1>Completed Courses</h1>
+            <ul>
+              <li>
+                <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img src="guitar.jpg" alt="Cube" id = "course_image">
+                    </div>
+                    <div class="flip-card-back">
+                      <h4>HowToBasic</h4>
+                      <h1>Guitar</h1>
+                      <button id = "register" ><a href="#">View Batch</a></button>
+                    </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img src="chess.jpg" alt="Basket Ball" id = "course_image">
+                    </div>
+                    <div class="flip-card-back">
+                      <h4>HowToBasic</h4>
+                      <h1>Chess</h1>
+                      <button id = "register" ><a href="#">View Batch</a></button>
+                    </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

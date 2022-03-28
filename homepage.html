@@ -1,6 +1,4 @@
-<!--Saathvika Bandi
-S20200010180
-Group-23-->
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,36 +9,38 @@ Group-23-->
     <link rel="stylesheet" href="homepage.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-          <h2 class="logo">HowToBasic</h2>
-            <nav>
-              <ul>
-                <!-- Search bar -->
-                <li><div id="search">SEARCH :
-                  <select name="Category" id="category" style="width: 100px;height: 20px;background-color: #444; color:#fff">
-                    <option value="none" selected id="opt">None</option>
-                    <option value="entertainment" id="opt">Entertainment</option>
-                    <option value="education" id="opt">Education</option>
-                    <option value="puzzles" id="opt">Puzzles</option> 
-                  </select></div></li>
-                <li><a href="homepage.html" style="color:#444">Home</a></li>
-                <li><a href="#" style="color:#444">About</a></li>
-                <li><a href="#" style="color:#444">Contact</a></li>
-                <li><a href="login.html"><img class="pfp" src="defaultpfp.png"></a></li>
-              </ul>
-            </nav>
-          </div>
-    </header>
 
     <div class="sidenav">
-      <a href="#my_courses" >Dash board</a>
-      <a href="#">Account</a>
-      <a href="#">Badges won</a>
+      <a href="my_courses.html" ><img src = "dashboard.jpg" style="height: 50px; width: 50px;"></a>
+      <a href="#"><img src = "account.jpg" style="height: 50px; width: 50px;"></a>
+      <a href="#"><img src = "badge_icon.jpg" style="height: 50px; width: 50px;"></a>
+      <a href="#"><img src = "notification.jpg" style="height: 50px; width: 50px;"></a>
+      <a href="#"><img src = "agenda.jpg" style="height: 47px; width: 47px;"></a>
     </div>
     <div id = "main">
+      <div class="container">
+        <h2 class="logo">HowToBasic</h2>
+          <nav>
+            <ul>
+              <!-- Search bar -->
+              <li><div id="search">SEARCH :
+                <select name="Category" id="category" style="width: 100px;height: 20px;background-color: #444; color:#fff">
+                  <option value="none" selected id="opt">None</option>
+                  <option value="entertainment" id="opt">Entertainment</option>
+                  <option value="education" id="opt">Education</option>
+                  <option value="puzzles" id="opt">Puzzles</option> 
+                </select></div></li>
+              <li><a href="homepage.html" style="color:#444">Home</a></li>
+              <li><a href="#" style="color:#444">About</a></li>
+              <li><a href="#" style="color:#444">Contact</a></li>
+              <li><a href="#"><img class="pfp" src="defaultpfp.png"></a></li>
+            </ul>
+          </nav>
+        </div>
+      <div id = "content">
           <!-- Contest -->
-      <div id="contests">
+        <div id="contests">
+          <!-- <p id = "intro">Welcome Saathvika....</p> -->
         <section class="carousel" aria-label="Gallery">
           <ol class="carousel__viewport">
               <li id="carousel__slide1" tabindex="0" class="carousel__slide" >
@@ -63,7 +63,7 @@ Group-23-->
             <aside class="carousel__navigation">
               <ol class="carousel__navigation-list">
                 <li class="carousel__navigation-item" >
-                  <a href="#carousel__slide1" class="carousel__navigation-button"></a>
+                  <a href="#carousel__slide1" class="carousel__navigation-button" style="color: #fff;"></a>
                 </li>
                 <li class="carousel__navigation-item">
                   <a href="#carousel__slide2" class="carousel__navigation-button"></a>
@@ -77,13 +77,13 @@ Group-23-->
       </div>
 
       <div id ="available_courses">
-        <h1>Available Courses</h1><br><br>
+        <h1>Recommended for you...</h1><br><br>
         <ul>
           <li>
             <div class="flip-card">
               <div class="flip-card-inner">
                   <div class="flip-card-front">
-                    <img src="guitar.jpg" alt="Guitar" style="width:200px;height:200px; border-radius: 1cm;">
+                    <img src="guitar.jpg" alt="Guitar" id = "course_image">
                   </div>
                   <div class="flip-card-back">
                     <h4>HowToBasic</h4>
@@ -97,7 +97,7 @@ Group-23-->
             <div class="flip-card">
               <div class="flip-card-inner">
                   <div class="flip-card-front">
-                    <img src="chess.jpg" alt="Chess" style="width:200px;height:200px; border-radius: 1cm;">
+                    <img src="chess.jpg" alt="Chess" id = "course_image">
                   </div>
                   <div class="flip-card-back">
                     <h4>HowToBasic</h4>
@@ -111,7 +111,7 @@ Group-23-->
             <div class="flip-card">
               <div class="flip-card-inner">
                   <div class="flip-card-front">
-                    <img src="sketching.jpg" alt="Sketching" style="width:200px;height:200px; border-radius: 1cm;">
+                    <img src="sketching.jpg" alt="Sketching" id = "course_image">
                   </div>
                   <div class="flip-card-back">
                     <h4>HowToBasic</h4>
@@ -125,10 +125,10 @@ Group-23-->
             <div class="flip-card">
               <div class="flip-card-inner">
                   <div class="flip-card-front">
-                    <img src="sudoku.jpg" alt="Sudoku" style="width:200px;height:200px; border-radius: 1cm;">
+                    <img src="sudoku.jpg" alt="Sudoku" id = "course_image">
                   </div>
                   <div class="flip-card-back">
-                    <h4>HowToBasic</h4>
+                    <h3>HowToBasic</h3>
                     <h1>Sudoku</h1>
                     <button id = "register" ><a href="#">Register now</a></button>
                   </div>
@@ -137,7 +137,7 @@ Group-23-->
           </li>
         </ul>
         </div>
-        </div>
-    </div>
+      </div>
+      </div>
 </body>
 </html>
