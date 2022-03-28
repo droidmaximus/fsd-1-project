@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:400,600');
+
+
 body {
 	margin: 0;
-	background: #0E1016;
+	background-color: black;
 	font-family: 'Work Sans', sans-serif;
-	font-weight: 800;
+	font-weight: 1800;
 }
 
 .container {
@@ -30,51 +32,21 @@ header::after {
     height: 100%; 
     
 }
-.btn{
-  position: absolute;
-  top: 85%;
-  left: 90%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  background-color: #55d6aa;
-  color: black;
-  font-size: 28px;
-  padding: 12px 20px;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
-  border-radius: 2px;
-}
 
-.course-body{
-  margin-left: 50px;
-  float: left;
-}
-.course-body1{
-  margin-right: 20px;
-  float: right;
-  padding-top: 30px;
-  padding-right: 250px;
-
-}
-.circle {
-  height: 50px;
-  width: 50px;
-  background-color: #55d6aa;
-  border-radius: 50%;
-  margin:auto;
-  text-align: center;
-}
 .table{
-  width:100%
+  width:100%;
 }
 th, td {
   padding: 15px;
   text-align: center;
   vertical-align: center;
+  color: white;
 }
 .inst-img{
   width :20px;
+}
+.dark-text{
+  color: #04a47b
 }
 .green-text{
   color:#55d6aa
@@ -92,7 +64,17 @@ ul > li {
 .logo {
   float: left;
 }
-
+.greenbg{
+  position: relative;
+  background-color: #55d6aa;
+  margin-left: 20%;
+  margin-right: 20%;
+  text-align: center;
+  color:#000;
+}
+vcbutton{
+  background-color: #55d6aa;
+}
 .pfp{
     display: inline-block;
     margin-left: 20px;
@@ -126,7 +108,9 @@ nav a {
   text-transform: uppercase;
   font-size: 14px;
 }
-
+.studTable{
+  color:white;
+}
 nav a:hover {
   color: #000;
 }
