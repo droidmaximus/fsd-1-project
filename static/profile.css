@@ -6,6 +6,20 @@ main{
     display: inline-block;
     margin-left: 415px;
 }
+.pfpicon{
+    width: 100px;
+    height: 100px;
+    vertical-align: middle;
+}
+.modal-content{
+    background-color: #f1f1f1;
+    width: 500px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    height: auto;
+    overflow: auto;
+}
 
 button{
     background-color: #55d6aa;
