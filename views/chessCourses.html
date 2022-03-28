@@ -10,7 +10,7 @@ Group No.:- 23 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     
-    <link rel="stylesheet" href="cstyle.css" />
+    <link rel="stylesheet" href="/static/cstyle.css" />
     
     <link
       rel="stylesheet"
@@ -26,18 +26,18 @@ Group No.:- 23 -->
           <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">About</a></li>
-            <li><a href="Courses.html">Courses</a></li>
+            <li><a href="chessCourses.html">Courses</a></li>
             <li><a href="#">Contact</a></li>
             <li>
-              <a href="login.html"><img class="pfp" src="defaultpfp.png" /></a>
+              <a href="login.html"><img class="pfp" src="/assests/defaultpfp.png" /></a>
             </li>
           </ul>
         </nav>
       </div>
     </header>
     <div class="divimg">
-      <img class="courseImage" src="chess1.jpg" />
-      <button class="btn">Register</button>
+      <img class="courseImage" src="/assests/chess/chess1.jpg" />
+      <button class="btn" id="rButton" onclick="hide()">Register</button>
     </div>
 
     <div class="container">
@@ -55,13 +55,13 @@ Group No.:- 23 -->
             </li>
             <h3 class="green-text">Instructors</h3>
             <ul>
-              <li><img class="inst-img" src="defaultpfp.png" /></li>
+              <li><img class="inst-img" src="/assests/defaultpfp.png" /></li>
               <li>
                 <h4 class="white-text">
                   Yash Gupta&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </h4>
               </li>
-              <li><img class="inst-img" src="defaultpfp.png" /></li>
+              <li><img class="inst-img" src="/assests/defaultpfp.png" /></li>
               <li><h4 class="white-text">Avinash Bhojnapalli</h4></li>
             </ul>
 
@@ -129,7 +129,7 @@ Group No.:- 23 -->
               </td></tr>
               </table>
             </td>
-            <td><img class="board" src="king.png"></td>
+            <td><img class="board" src="/assests/chess/king.png"></td>
           </tr>
           <tr>
             <td>
@@ -142,7 +142,7 @@ Group No.:- 23 -->
               </td></tr>
               </table>
             </td>
-            <td><img class="board" src="queen.png"></td>
+            <td><img class="board" src="/assests/chess/queen.png"></td>
           </tr>
           <tr>
             <td>
@@ -155,7 +155,7 @@ Group No.:- 23 -->
               </td></tr>
               </table>
             </td>
-            <td><img class="board" src="rook.png"></td>
+            <td><img class="board" src="/assests/chess/rook.png"></td>
           </tr>
           <tr>
             <td>
@@ -168,7 +168,7 @@ Group No.:- 23 -->
               </td></tr>
               </table>
             </td>
-            <td><img class="board" src="bishop.png"></td>
+            <td><img class="board" src="/assests/chess/bishop.png"></td>
           </tr>
           <tr>
             <td>
@@ -181,7 +181,7 @@ Group No.:- 23 -->
               </td></tr>
               </table>
             </td>
-            <td><img class="board" src="knight.png"></td>
+            <td><img class="board" src="/assests/chess/knight.png"></td>
           </tr>
           <tr>
             <td>
@@ -194,7 +194,7 @@ Group No.:- 23 -->
               </td></tr>
               </table>
             </td>
-            <td><img class="board" src="pawn.png"></td>
+            <td><img class="board" src="/assests/chess/pawn.png"></td>
           </tr>
           <tr>
             <td>
@@ -208,7 +208,7 @@ Group No.:- 23 -->
               </td></tr>
               </table>
             </td>
-            <td><img class="board" src="pp.gif"></td>
+            <td><img class="board" src="/assests/chess/pp.gif"></td>
           </tr>
           <tr>
             <td>
@@ -221,7 +221,7 @@ Group No.:- 23 -->
               </td></tr>
               </table>
             </td>
-            <td><img class="board" src="board.jpeg"></td>
+            <td><img class="board" src="/assests/chess/board.jpeg"></td>
           </tr>
         </table>
 
@@ -230,4 +230,10 @@ Group No.:- 23 -->
       </div>
     </div>
   </body>
+  <script>
+    function hide(){
+   document.getElementById("rButton").style.display = "none";
+  }
+
+  </script>
 </html>
