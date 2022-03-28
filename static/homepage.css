@@ -139,7 +139,7 @@ ul > li {
 
 * {
   box-sizing: border-box;
-  scrollbar-color: transparent transparent; /* thumb and track color */
+  scrollbar-color: transparent transparent;
   scrollbar-width: 0px;
 }
 
@@ -147,14 +147,14 @@ ul > li {
   width: 0;
 }
 
-/* *::-webkit-scrollbar-track {
+*::-webkit-scrollbar-track {
   background: transparent;
-} */
+}
 
-/* *::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
   background: transparent;
   border: none;
-} */
+}
 
 * {
   -ms-overflow-style: none;
@@ -201,14 +201,14 @@ ul > li {
 }
 
 #carousel__slide1 {
-  background-image: url(guitar.jpg);
+  background-image: url(\assests\guitar.jpg);
   background-position: 30 px;
   background-size: 1500px 450px;
   margin-right: 30px;
 }
 
 #carousel__slide2 {
-  background-image: url(cube.jpg);
+  background-image: url(\assests\cube.jpg);
   background-position: 50 px;
   background-size: 1140px 450px;
   margin-right: 30px;
@@ -216,7 +216,7 @@ ul > li {
 }
 
 #carousel__slide3 {
-  background-image: url(chess.jpg);
+  background-image: url('\assests\chess.jpg');
   background-position: 50 px;
   background-size: 1150px 450px;
   margin-right: 30px;
