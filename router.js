@@ -1,5 +1,14 @@
 var express = require("express");
 var router = express.Router();
+//include sqlite
+var sqlite3 = require("sqlite3").verbose();
+//include body parser
+var bodyParser = require("body-parser");
+
+//initialize a database
+var db = new sqlite3.Database("../db/database.db");
+//create a table for storing login credentials
+db.run("CREATE TABLE IF NOT EXISTS login (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password TEXT)");
 
 const  credential = {
     email : "admin@gmail.com",
@@ -8,7 +17,6 @@ const  credential = {
 
 router.post('/login', (req, res)=>{
     if(req.body.email == credential.email && req.body.password == credential.password){
-        req.session.user = req.body.email;
         res.redirect('/route/profile');
 
     }else{
@@ -17,11 +25,19 @@ router.post('/login', (req, res)=>{
 });
 
 router.get('/profile', (req, res) => {
-    if(req.session.user){
-        res.render('profile', {user : req.session.user})
-    }else{
-        res.send("Unauthorize User")
-    }
+        res.render('profile')
+})
+
+router.post('/signup',(req, res)=>{
+
+    db.run("INSERT INTO login (username, password) VALUES (?, ?)", [req.body.username, req.body.password], function(err){
+        if(err){
+            console.log(err);
+            res.send("Error");
+        }
+    });
+    
+    res.redirect('/route/profile');
 })
 
 router.get('/logout', (req ,res)=>{
