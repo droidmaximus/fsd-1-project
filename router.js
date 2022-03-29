@@ -1,13 +1,9 @@
 var express = require("express");
 var router = express.Router();
-//include sqlite
 var sqlite3 = require("sqlite3").verbose();
-//include body parser
-var bodyParser = require("body-parser");
-
-//initialize a database
+var validate = require('./signup.js');
 let db = new sqlite3.Database(':memory:');
-//create a table for storing login credentials
+
 db.run("CREATE TABLE IF NOT EXISTS login (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password TEXT)");
 
 
