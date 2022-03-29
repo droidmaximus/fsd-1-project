@@ -30,8 +30,16 @@ app.get('/bbCourses', (req, res) => {
     res.render('bbCourses');
 });
 
+app.get('/bbExaminer', (req, res) => {
+    res.render('bbExaminer');
+});
+
 app.get('/chessCourses',(req, res)=>{
     res.render('chessCourses');
+});
+
+app.get('/chessExaminer',(req, res)=>{
+    res.render('chessExaminer');
 });
 
 app.get('/contact',(req,res)=>{
@@ -62,17 +70,27 @@ app.get('/my_courses',(req,res)=>{
     res.render('my_courses');
 });
 
+app.get('/sudokuCourses',(req,res)=>{
+    res.render('sudokuCourses');
+});
+
+app.get('/sudokuExaminer',(req,res)=>{
+    res.render('sudokuExaminer');
+});
+
+app.get('/examiner_dashboard',(req,res)=>{
+    res.render('examiner_dashboard');
+});
+
+app.get('/Error404',(req,res)=>{
+    res.render('Error404');
+});
 
 
 
 
 
 
-
-db.run("CREATE TABLE IF NOT EXISTS login (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password TEXT)");
-
-
-router.post('/login', (req, res)=>{
 
     let email = req.body.email;
     let password = req.body.password;
@@ -90,7 +108,6 @@ router.post('/login', (req, res)=>{
             }
         }
     });
-});
 
 // router.get('/profile', (req, res) => {
 

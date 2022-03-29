@@ -1,5 +1,6 @@
-module.exports={
-    validate:function(mailid,password,confirm){
+
+    function validateSignup(){
+        let mailid = document.getElementById("email").value;
         let atSymbol = mailid.indexOf("@");
 
         if (atSymbol < 1)
@@ -12,6 +13,9 @@ module.exports={
         if (dot === mailid.length - 1)
             return alert("Invalid email address");
 
+        let password = document.getElementById("password1").value;
+        let confirm = document.getElementById("password2").value;
+
         if (password.length < 8)
             return alert("Password must be atleast 8 characters long");
         if (!password.match(/\d/))
@@ -21,6 +25,5 @@ module.exports={
         if (password != confirm)
             return alert("Passwords don't not match!");
 
-        return true;
+        return ;
     }
-}
