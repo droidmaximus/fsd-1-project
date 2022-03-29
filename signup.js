@@ -1,5 +1,5 @@
 function validateSignup () {
-    let mailid = document.getElementById("mailid").value;
+    let mailid = document.getElementById("email").value;
     let atSymbol = mailid.indexOf("@");
 
     if(atSymbol < 1) 
@@ -12,8 +12,8 @@ function validateSignup () {
     if (dot === mailid.length - 1)
          return alert("Invalid email address");
 
-    let password=document.getElementById("password").value;
-    let confirm=document.getElementById("confirm").value;
+    let password=document.getElementById("password1").value;
+    let confirm=document.getElementById("password2").value;
 
     if(password.length < 8)
         return alert("Password must be atleast 8 characters long");
