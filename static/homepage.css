@@ -69,7 +69,6 @@ nav a::before {
   display: block;
   height: 5px;
   background-color: #444;
-
   position: absolute;
   top: 0;
   width: 0%;
@@ -89,7 +88,7 @@ ul > li {
 
 /* search bar */
 #search {
-  color: #444;
+  color: #000;
   font-size: small;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -139,7 +138,7 @@ ul > li {
 
 * {
   box-sizing: border-box;
-  scrollbar-color: transparent transparent; /* thumb and track color */
+  scrollbar-color: transparent transparent;
   scrollbar-width: 0px;
 }
 
@@ -147,14 +146,14 @@ ul > li {
   width: 0;
 }
 
-/* *::-webkit-scrollbar-track {
+*::-webkit-scrollbar-track {
   background: transparent;
-} */
+}
 
-/* *::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
   background: transparent;
   border: none;
-} */
+}
 
 * {
   -ms-overflow-style: none;
@@ -201,14 +200,14 @@ ul > li {
 }
 
 #carousel__slide1 {
-  background-image: url(guitar.jpg);
+  background-image: url(\assests\guitar.jpg);
   background-position: 30 px;
   background-size: 1500px 450px;
   margin-right: 30px;
 }
 
 #carousel__slide2 {
-  background-image: url(cube.jpg);
+  background-image: url(\assests\cube.jpg);
   background-position: 50 px;
   background-size: 1140px 450px;
   margin-right: 30px;
@@ -216,7 +215,7 @@ ul > li {
 }
 
 #carousel__slide3 {
-  background-image: url(chess.jpg);
+  background-image: url('\assests\chess.jpg');
   background-position: 50 px;
   background-size: 1150px 450px;
   margin-right: 30px;
@@ -274,27 +273,19 @@ ul > li {
 
 .carousel__navigation-list,
 .carousel__navigation-item {
-  display: inline-block;
+  display: inline;
 }
 
 .carousel__navigation-button {
   display: inline-block;
   width: 1.5rem;
-  height: 1.5rem;
+  height: 20px;
   background-clip: content-box;
-  border-radius: 50%;
+  border-radius: 100%;
   font-size: 0;
   transition: transform 0.1s;
-  background-color: #55d6aa;
+  background-color: #000;
   padding-top: 10px;
-}
-
-/* Dashboard */
-#dash{
-  text-align: center;
-  color: beige;
-  font-style: italic;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 /* Button */
@@ -364,7 +355,6 @@ button {
 
 #completed_courses {
   margin-left: 70px;
-  /* padding-top: 80px; */
   color: #55d6aa;
   font-style: italic;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -427,6 +417,9 @@ button {
   height:240px; 
   border-radius: 1cm;
 }
+
+/* Side nav */
+
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
@@ -457,6 +450,8 @@ button {
   padding-top: 90px; 
 
 }
+
+/* Examiner Dashboard */
 
 #content_examiner_dashboard {
   padding-top:100px;
@@ -504,7 +499,6 @@ button {
 .ce_Title{
   font-size:25px;
   color: #55d6aa;
-  
 }
 
 .event_item{
