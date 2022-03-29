@@ -1,5 +1,8 @@
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> yash
   "name": "howtobasic",
   "version": "1.0.0",
   "description": "",
@@ -20,20 +23,35 @@
   "homepage": "https://github.com/droidmaximus/fsd-1-project#readme",
   "dependencies": {
     "body-parser": "^1.19.2",
+<<<<<<< HEAD
+=======
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.0",
+>>>>>>> yash
     "ejs": "^3.1.6",
     "express": "^4.17.3",
     "express-session": "^1.17.2",
     "http-server": "^14.1.0",
+<<<<<<< HEAD
     "lodash": "^4.17.21",
+=======
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "mysql": "^2.18.1",
+>>>>>>> yash
     "nodemon": "^2.0.15",
     "path": "^0.12.7",
     "router": "^1.3.6",
     "sqlite": "^4.0.25",
+<<<<<<< HEAD
     "sqlite3": "^5.0.2",
     "uuid": "^8.3.2"
 =======
   "dependencies": {
     "bootstrap": "^5.1.3"
 >>>>>>> origin/saathvika
+=======
+    "uuid": "^8.3.2"
+>>>>>>> yash
   }
 }
