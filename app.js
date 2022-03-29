@@ -5,6 +5,12 @@ const router = express.Router();
 const sqlite3 = require("sqlite3").verbose();
 const validate = require('./signup.js');
 let db = new sqlite3.Database('userdetails.db');
+const bodyparser = require('body-parser');
+
+
+app.use(bodyparser.urlencoded({extended: true}));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.set('view engine', 'ejs');
 
@@ -86,66 +92,56 @@ app.get('/Error404',(req,res)=>{
 
 
 
+    let email = req.body.email;
+    let password = req.body.password;
 
-
-
-// db.run("CREATE TABLE IF NOT EXISTS login (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password TEXT)");
-
-
-// router.post('/login', (req, res)=>{
-
-//     let username = req.body.username;
-//     let password = req.body.password;
-
-//     db.get("SELECT * FROM login WHERE username = ? AND password = ?", [username, password], (err, row)=>{
-//         if(err){
-//             res.status(500).send("Error logging in");
-//         }
-//         else{
-//             if(row){
-//                 res.redirect('/route/profile');
-//             }
-//             else{
-//                 res.status(404).send("Invalid username or password");
-//             }
-//         }
-//     });
-// });
+    db.get("SELECT * FROM login WHERE username = ? AND password = ?", [username, password], (err, row)=>{
+        if(err){
+            res.status(500).send("Error logging in");
+        }
+        else{
+            if(row){
+                res.redirect('/profile');
+            }
+            else{
+                res.status(404).send("Invalid username or password");
+            }
+        }
+    });
 
 // router.get('/profile', (req, res) => {
 
 //     res.render('profile', {
-//         username: req.session.username
+//         username: req.session.ame
 //     });
 // })
 
-// router.post('/signup',(req, res)=>{
+router.post('/signup',(req, res)=>{
+console.log(req.body);
 
-// if(validate.validate(req.body.email, req.body.password1, req.body.password2)){
-//     db.run("INSERT INTO login (username, password) VALUES (?, ?)", [req.body.username, req.body.password], function(err){
-//         if(err){
-//             console.log(err);
-//             res.send("Error");
-//         }
-//     });
+    db.run("INSERT INTO login (username, password) VALUES (?, ?)", [req.body.email, req.body.password1], function(err){
+        if(err){
+            console.log(err);
+            res.send("Error");
+        }
+    });
     
-//     res.redirect('/route/profile');
-// }
-// })
+    res.redirect('/profile');
+})
 
-// router.get('/logout', (req ,res)=>{
-//     req.session.destroy(function(err){
-//         if(err){
-//             console.log(err);
-//             res.send("Error")
-//         }else{
-//             res.render('base', { title: "Express", logout : "logout Successfully...!"})
-//         }
-//     })
-// })
+router.get('/logout', (req ,res)=>{
+    req.session.destroy(function(err){
+        if(err){
+            console.log(err);
+            res.send("Error")
+        }else{
+            res.render('base', { title: "Express", logout : "logout Successfully...!"})
+        }
+    })
+})
 
-// module.exports = router;
-// db.close();
+module.exports = router;
+
 
 
 
