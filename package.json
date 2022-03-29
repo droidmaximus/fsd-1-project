@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "howtobasic",
   "version": "1.0.0",
   "description": "",
@@ -30,5 +31,9 @@
     "sqlite": "^4.0.25",
     "sqlite3": "^5.0.2",
     "uuid": "^8.3.2"
+=======
+  "dependencies": {
+    "bootstrap": "^5.1.3"
+>>>>>>> origin/saathvika
   }
 }
