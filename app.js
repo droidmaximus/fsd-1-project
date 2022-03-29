@@ -89,10 +89,12 @@ app.get('/Error404',(req,res)=>{
 
 
 
+db.run("CREATE TABLE IF NOT EXISTS login (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password TEXT)");
 
 
+router.post('/login', (req, res)=>{
 
-    let email = req.body.email;
+    let username = req.body.name;
     let password = req.body.password;
 
     db.get("SELECT * FROM login WHERE username = ? AND password = ?", [username, password], (err, row)=>{
@@ -108,6 +110,7 @@ app.get('/Error404',(req,res)=>{
             }
         }
     });
+});
 
 // router.get('/profile', (req, res) => {
 
@@ -118,15 +121,21 @@ app.get('/Error404',(req,res)=>{
 
 router.post('/signup',(req, res)=>{
 console.log(req.body);
-
-    db.run("INSERT INTO login (username, password) VALUES (?, ?)", [req.body.email, req.body.password1], function(err){
+    var callback = "";
+    if(validate.validate(req.body.email, req.body.password1, req.body.password2, callback) == true){
+    db.run("INSERT INTO login (username, password) VALUES (?, ?)", [req.body.user, req.body.password1], function(err){
         if(err){
             console.log(err);
             res.send("Error");
         }
     });
-    
     res.redirect('/profile');
+}
+else{
+    res.redirect('/signup');
+    res.send(callback);
+}
+
 })
 
 router.get('/logout', (req ,res)=>{
