@@ -6,26 +6,36 @@ var sqlite3 = require("sqlite3").verbose();
 var bodyParser = require("body-parser");
 
 //initialize a database
-var db = new sqlite3.Database("../db/database.db");
+let db = new sqlite3.Database(':memory:');
 //create a table for storing login credentials
 db.run("CREATE TABLE IF NOT EXISTS login (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password TEXT)");
 
-const  credential = {
-    email : "admin@gmail.com",
-    password : "admin123"
-}
 
 router.post('/login', (req, res)=>{
-    if(req.body.email == credential.email && req.body.password == credential.password){
-        res.redirect('/route/profile');
 
-    }else{
-        res.end("Invalid Username or password")
-    }
+    let username = req.body.username;
+    let password = req.body.password;
+
+    db.get("SELECT * FROM login WHERE username = ? AND password = ?", [username, password], (err, row)=>{
+        if(err){
+            res.status(500).send("Error logging in");
+        }
+        else{
+            if(row){
+                res.redirect('/route/profile');
+            }
+            else{
+                res.status(404).send("Invalid username or password");
+            }
+        }
+    });
 });
 
 router.get('/profile', (req, res) => {
-        res.render('profile')
+
+    res.render('profile', {
+        username: req.session.username
+    });
 })
 
 router.post('/signup',(req, res)=>{
@@ -52,3 +62,4 @@ router.get('/logout', (req ,res)=>{
 })
 
 module.exports = router;
+db.close();
