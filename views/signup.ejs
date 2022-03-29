@@ -5,9 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/signupstyles.css">
+    <script src="../signup.js"></script>
     <title>Signup</title>
 </head>
-<script src="signup.js"></script>
+
 
 <body>
     <div class="main">
@@ -17,19 +18,23 @@
         <form action="/route/signup" method="POST" class="pt-3">
             <ul style="margin-right: 40px;">
                 <div class="form-group">
-                    <input type="text" name="mailid" id="mailid" placeholder="Mail ID">
+                    <input type="text" name="user" id="user" placeholder="Username">
                 </div>
                 <div class="form-group">
-                    <input type="password" name="password" id="password" placeholder="Password">
+                    <input type="text" name="email" id="email" placeholder="Mail ID">
                 </div>
                 <div class="form-group">
-                    <input type="password" name="confirm" id="confirm" placeholder="Confirm Password"
+                    <input type="password" name="password1" id="password1" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password2" id="password2" placeholder="Confirm Password"
                         style="margin-bottom: 50px;">
                 </div>
                 <button type="submit" value="Signup" onclick="validateSignup()">Signup</button>
             </ul>
         </form>
     </div>
+    <%- include('footer.html'); -%>
 </body>
 
 </html>
