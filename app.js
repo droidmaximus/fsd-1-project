@@ -24,8 +24,16 @@ app.get('/bbCourses', (req, res) => {
     res.render('bbCourses');
 });
 
+app.get('/bbExaminer', (req, res) => {
+    res.render('bbExaminer');
+});
+
 app.get('/chessCourses',(req, res)=>{
     res.render('chessCourses');
+});
+
+app.get('/chessExaminer',(req, res)=>{
+    res.render('chessExaminer');
 });
 
 app.get('/contact',(req,res)=>{
@@ -56,70 +64,88 @@ app.get('/my_courses',(req,res)=>{
     res.render('my_courses');
 });
 
-
-
-
-
-
-
-
-db.run("CREATE TABLE IF NOT EXISTS login (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password TEXT)");
-
-
-router.post('/login', (req, res)=>{
-
-    let username = req.body.username;
-    let password = req.body.password;
-
-    db.get("SELECT * FROM login WHERE username = ? AND password = ?", [username, password], (err, row)=>{
-        if(err){
-            res.status(500).send("Error logging in");
-        }
-        else{
-            if(row){
-                res.redirect('/route/profile');
-            }
-            else{
-                res.status(404).send("Invalid username or password");
-            }
-        }
-    });
+app.get('/sudokuCourses',(req,res)=>{
+    res.render('sudokuCourses');
 });
 
-router.get('/profile', (req, res) => {
+app.get('/sudokuExaminer',(req,res)=>{
+    res.render('sudokuExaminer');
+});
 
-    res.render('profile', {
-        username: req.session.username
-    });
-})
+app.get('/examiner_dashboard',(req,res)=>{
+    res.render('examiner_dashboard');
+});
 
-router.post('/signup',(req, res)=>{
+app.get('/Error404',(req,res)=>{
+    res.render('Error404');
+});
 
-if(validate.validate(req.body.email, req.body.password1, req.body.password2)){
-    db.run("INSERT INTO login (username, password) VALUES (?, ?)", [req.body.username, req.body.password], function(err){
-        if(err){
-            console.log(err);
-            res.send("Error");
-        }
-    });
+
+
+
+
+
+
+
+
+
+// db.run("CREATE TABLE IF NOT EXISTS login (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password TEXT)");
+
+
+// router.post('/login', (req, res)=>{
+
+//     let username = req.body.username;
+//     let password = req.body.password;
+
+//     db.get("SELECT * FROM login WHERE username = ? AND password = ?", [username, password], (err, row)=>{
+//         if(err){
+//             res.status(500).send("Error logging in");
+//         }
+//         else{
+//             if(row){
+//                 res.redirect('/route/profile');
+//             }
+//             else{
+//                 res.status(404).send("Invalid username or password");
+//             }
+//         }
+//     });
+// });
+
+// router.get('/profile', (req, res) => {
+
+//     res.render('profile', {
+//         username: req.session.username
+//     });
+// })
+
+// router.post('/signup',(req, res)=>{
+
+// if(validate.validate(req.body.email, req.body.password1, req.body.password2)){
+//     db.run("INSERT INTO login (username, password) VALUES (?, ?)", [req.body.username, req.body.password], function(err){
+//         if(err){
+//             console.log(err);
+//             res.send("Error");
+//         }
+//     });
     
-    res.redirect('/route/profile');
-}
-})
+//     res.redirect('/route/profile');
+// }
+// })
 
-router.get('/logout', (req ,res)=>{
-    req.session.destroy(function(err){
-        if(err){
-            console.log(err);
-            res.send("Error")
-        }else{
-            res.render('base', { title: "Express", logout : "logout Successfully...!"})
-        }
-    })
-})
+// router.get('/logout', (req ,res)=>{
+//     req.session.destroy(function(err){
+//         if(err){
+//             console.log(err);
+//             res.send("Error")
+//         }else{
+//             res.render('base', { title: "Express", logout : "logout Successfully...!"})
+//         }
+//     })
+// })
 
-module.exports = router;
-db.close();
+// module.exports = router;
+// db.close();
 
 
 
