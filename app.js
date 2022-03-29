@@ -43,7 +43,7 @@ app.get('/chessExaminer',(req, res)=>{
 });
 
 app.get('/contact',(req,res)=>{
-    res.sendFile(path.join(__dirname, 'views', 'contactus.html'));
+    res.render("contactus");
 });
 
 app.get('/guitarCourses',(req,res)=>{
