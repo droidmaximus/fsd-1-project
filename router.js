@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 var sqlite3 = require("sqlite3").verbose();
 var validate = require('./signup.js');
-let db = new sqlite3.Database(':memory:');
+let db = new sqlite3.Database('userdetails.db');
 
 db.run("CREATE TABLE IF NOT EXISTS login (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password TEXT)");
 
@@ -36,6 +36,7 @@ router.get('/profile', (req, res) => {
 
 router.post('/signup',(req, res)=>{
 
+if(validate.validate(req.body.email, req.body.password1, req.body.password2)){
     db.run("INSERT INTO login (username, password) VALUES (?, ?)", [req.body.username, req.body.password], function(err){
         if(err){
             console.log(err);
@@ -44,6 +45,7 @@ router.post('/signup',(req, res)=>{
     });
     
     res.redirect('/route/profile');
+}
 })
 
 router.get('/logout', (req ,res)=>{

@@ -1,6 +1,5 @@
 module.exports={
-    validate:function(){
-        let mailid = document.getElementById("email").value;
+    validate:function(mailid,password,confirm){
         let atSymbol = mailid.indexOf("@");
 
         if (atSymbol < 1)
@@ -12,9 +11,6 @@ module.exports={
 
         if (dot === mailid.length - 1)
             return alert("Invalid email address");
-
-        let password = document.getElementById("password1").value;
-        let confirm = document.getElementById("password2").value;
 
         if (password.length < 8)
             return alert("Password must be atleast 8 characters long");
