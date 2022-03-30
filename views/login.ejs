@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,36 +11,37 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="../static/loginstyles.css">
 </head>
+
 <body>
     <header>
-    <div id="login">
-       <div class="main">
+        <div id="login">
+            <div class="main">
                 <img src="assests/icon.jpg" alt="icon" class="icon">
                 <h2 style="text-align: center; padding-top: 60px;">Login</h2>
-                
+
                 <% if(locals.logout){ %>
                     <div class="alter alert-success text-center">
                         <%= logout %>
                     </div>
-                <% } %>
+                    <% } %>
 
-                <ul style="margin-right: 40px;">
+                        <ul style="margin-right: 40px;">
 
-                    <form action="/route/login" method="POST" class="pt-3">
-                        <div class="form-group">
-                            <input type="email" class="form-control" placeholder="email" name="email">
-                        </div>
-                        <div class="form-group" style="margin-bottom: 80px;">
-                            <input type="password" class="form-control" name="password" placeholder="password">
-                        </div>
-                        <input type="submit"></input>
-                    </form>
-                    
-                    <a href="#">New user? Create a new account!</a>
-                </ul>
-       </div>
-</div>
+                            <form action="/route/login" method="POST" class="pt-3">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Username" name="name">
+                                </div>
+                                <div class="form-group" style="margin-bottom: 80px;">
+                                    <input type="password" class="form-control" name="password" placeholder="password">
+                                </div>
+                                <input type="submit"></input>
+                            </form>
+
+                            <a href="#">New user? Create a new account!</a>
+                        </ul>
+            </div>
+        </div>
     </header>
-    <%- include('footer.html'); -%>
 </body>
+
 </html>

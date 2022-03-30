@@ -3,7 +3,16 @@ const path = require('path');
 const app = express();
 const router = express.Router();
 const sqlite3 = require("sqlite3").verbose();
-const validate = require('./signup.js');
+
+let index = 0;
+
+let credentials ={
+    "username": "admin",
+    "password": "admin12345"
+}
+
+let auth = true;
+
 let db = new sqlite3.Database('userdetails.db');
 const bodyparser = require('body-parser');
 
@@ -18,6 +27,7 @@ app.listen(3000);
 
 app.use('/static', express.static(path.join(__dirname, 'static')))
 app.use('/assests', express.static(path.join(__dirname, 'assests')))
+app.use('/js', express.static(path.join(__dirname, 'js')))
 
 app.use('/route', router);
 
@@ -74,20 +84,19 @@ app.get('/sudokuCourses',(req,res)=>{
     res.render('sudokuCourses');
 });
 
-app.get('/sudokuExaminer',(req,res)=>{
-    res.render('sudokuExaminer');
-});
-
 app.get('/examiner_dashboard',(req,res)=>{
     res.render('examiner_dashboard');
 });
+app.get('/sudokuExaminer',(req,res)=>{
+    res.render('sudokuExaminer');
+});
+    
 
-app.get('/Error404',(req,res)=>{
+
+
+app.get('*',(req,res)=>{
     res.render('Error404');
 });
-
-
-
 
 db.run("CREATE TABLE IF NOT EXISTS login (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password TEXT)");
 
@@ -97,12 +106,18 @@ router.post('/login', (req, res)=>{
     let username = req.body.name;
     let password = req.body.password;
 
+    if(username === credentials.username && password === credentials.password){
+        auth=true;
+        res.redirect('/examiner_dashboard');
+    }
+    else{
     db.get("SELECT * FROM login WHERE username = ? AND password = ?", [username, password], (err, row)=>{
         if(err){
             res.status(500).send("Error logging in");
         }
         else{
             if(row){
+                index = row.id;
                 res.redirect('/profile');
             }
             else{
@@ -110,19 +125,29 @@ router.post('/login', (req, res)=>{
             }
         }
     });
+    }
 });
 
-// router.get('/profile', (req, res) => {
+router.get('/profile', (req, res) => {
 
-//     res.render('profile', {
-//         username: req.session.ame
-//     });
-// })
+    db.get("SELECT * FROM login WHERE id = ?", [index], (err, row)=>{
+        if(err){
+            res.status(500).send("Error logging in");
+        }
+        else{
+            if(row){
+                res.render('profile', {username: row.username});
+            }
+            else{
+                res.status(404).send("Invalid username or password");
+            }
+        }
+    });
+})
 
 router.post('/signup',(req, res)=>{
 console.log(req.body);
-    var callback = "";
-    if(validate.validate(req.body.email, req.body.password1, req.body.password2, callback) == true){
+
     db.run("INSERT INTO login (username, password) VALUES (?, ?)", [req.body.user, req.body.password1], function(err){
         if(err){
             console.log(err);
@@ -130,11 +155,6 @@ console.log(req.body);
         }
     });
     res.redirect('/profile');
-}
-else{
-    res.redirect('/signup');
-    res.send(callback);
-}
 
 })
 
@@ -148,6 +168,7 @@ router.get('/logout', (req ,res)=>{
         }
     })
 })
+
 
 module.exports = router;
 

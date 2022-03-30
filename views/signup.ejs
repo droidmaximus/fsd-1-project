@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/signupstyles.css">
-    <script src="../signup.js"></script>
     <title>Signup</title>
 </head>
 
@@ -17,23 +16,25 @@
             course content for free!</h2>
         <form action="/route/signup" method="POST" class="pt-3">
             <ul style="margin-right: 40px;">
-                <div class="form-group">
-                    <input type="text" name="user" id="user" placeholder="Username">
+                <div class="form-group" class="validate">
+                    <input type="text" onchange="validateSignup()" name="user" id="user" placeholder="Username">
                 </div>
-                <div class="form-group">
-                    <input type="text" name="email" id="email" placeholder="Mail ID">
+                <div class="form-group" class="validate">
+                    <input type="text" name="email" id="email" onchange="validateSignup()" placeholder="Mail ID">
                 </div>
-                <div class="form-group">
-                    <input type="password" name="password1" id="password1" placeholder="Password">
+                <div class="form-group" class="validate">
+                    <input type="password" name="password1" id="password1" onchange="validateSignup()"
+                        placeholder="Password">
                 </div>
-                <div class="form-group">
-                    <input type="password" name="password2" id="password2" placeholder="Confirm Password"
-                        style="margin-bottom: 50px;">
+                <div class="form-group" class="validate">
+                    <input type="password" name="password2" id="password2" onchange="validateSignup()"
+                        placeholder="Confirm Password" style="margin-bottom: 50px;">
                 </div>
-                <button type="submit" value="Signup" onclick="validateSignup()">Signup</button>
+                <button type="submit" value="Signup" >Signup</button>
             </ul>
         </form>
     </div>
+    <script src="/js/signup.js"></script>
 </body>
 
 </html>
