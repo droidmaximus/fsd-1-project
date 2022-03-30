@@ -11,8 +11,6 @@ let credentials ={
     "password": "admin12345"
 }
 
-let auth = true;
-
 let db = new sqlite3.Database('userdetails.db');
 const bodyparser = require('body-parser');
 
@@ -90,13 +88,19 @@ app.get('/examiner_dashboard',(req,res)=>{
 app.get('/sudokuExaminer',(req,res)=>{
     res.render('sudokuExaminer');
 });
-    
 
-
+app.get('/about',(req,res)=>{
+    res.render('about');
+});
 
 app.get('*',(req,res)=>{
     res.render('Error404');
 });
+
+
+
+
+
 
 db.run("CREATE TABLE IF NOT EXISTS login (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password TEXT)");
 
