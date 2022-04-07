@@ -3,6 +3,15 @@ const path = require('path');
 const app = express();
 const router = express.Router();
 const sqlite3 = require("sqlite3").verbose();
+const morgan = require('morgan');
+const mongoose = require('mongoose');
+const user = require('./models/user');
+
+const uri = 'mongodb+srv://admin:admin123@howtobasic.xhoei.mongodb.net/HowToBasic?retryWrites=true&w=majority'
+
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(result => app.listen(3000))
+  .catch(err => console.log(err));
 
 let index = 0;
 
@@ -21,14 +30,24 @@ app.use(express.urlencoded({ extended: true }));
 
 app.set('view engine', 'ejs');
 
-app.listen(3000);
-
 app.use('/static', express.static(path.join(__dirname, 'static')))
 app.use('/assests', express.static(path.join(__dirname, 'assests')))
 app.use('/js', express.static(path.join(__dirname, 'js')))
 
 app.use('/route', router);
 
+
+app.get('/test',(req,res)=>{
+    const User = new user({
+        username: "admin",
+        password: "admin12345",
+        email: "admin@admin.com"
+    })
+
+    User.save()
+    .then(result => {console.log(result)})
+    .catch(err => {console.log(err)})
+})
 
 app.get('/', (req, res) => {
     res.render('homepage');
