@@ -454,7 +454,7 @@ button {
   padding-top:100px;
   padding-left: 70px;
 }
-
+/* EVENTS */
 .agenda {
   width:800px;
   margin-left: 40px;
@@ -462,27 +462,18 @@ button {
   padding: 20px 20px;
   color:#000;
   display: inline-block;
-  border-color: #55d6aa;
-  border-radius: 1.5cm;
-}
-
-.agenda_plan{
-  background-color: #55d6aa;
-  margin:20px 0 40px;
-  padding: 15px;
+  background:#55d6aa;
   border-radius: 1cm;
 }
 
-.cl_title{
-  padding-top: 10px;
-  font-size: large;
-  font-style: italic;
-}
-.cl_copy{
+.date{
   font-size:20px;
-  margin: 20px 0;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  display: inline-block;
+  margin:10px 0 10px;
+  padding: 15px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  font-weight: 500;
 }
 
 .add_button{
@@ -492,30 +483,27 @@ button {
   margin:0 0 0 65px;
   padding: 11px 13px;
 }
-
-.ce_Title{
-  font-size:25px;
-  color: #55d6aa;
-}
-
 .event_item{
   margin: 18px 0;
-  padding:15px;
   cursor: pointer;
   background-color: #55d6aa;
-  border-radius :1cm;
+  width: 500px;
 }
 
-.ei_Title{
-  margin-left:20px;
-  color:#363b41;
+.event_item:hover{
+  background-color: #0e1016;
+  border-radius: 1cm;
+  color: #55d6aa;
+}
+.event_desc {
+  margin-left:30px;
+  font-size: medium;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  line-height: 25px;
+  border-width: 1px;
 }
 
-.ei_Copy{
-  font-size:15px;
-  margin-left:27px;
-}
-
+/* CAROUSAL */
 #carousel__slide1 {
   background-image: url('../assests/guitar.jpg');
   background-position: 30 px;
