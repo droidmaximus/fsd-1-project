@@ -37,6 +37,9 @@ app.get('/', (req, res) => {
 app.get('/bbCourses', (req, res) => {
     res.render('bbCourses');
 });
+app.get('/quiz', (req, res) => {
+    res.render('quiz');
+});
 
 app.get('/bbExaminer', (req, res) => {
     res.render('bbExaminer');
