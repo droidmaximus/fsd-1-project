@@ -40,7 +40,10 @@ Group No.:- 23 -->
     </header>
     <div class="divimg">
       <img class="courseImage" src="/assests/sudoku/sudoku.jpg  " />
-      <button class="btn" id="rButton" onclick="hide()">Register</button>
+      <% if (!user.rsud) { %>
+        <button class="btn" id="rButton" onclick="hide()">Register</button>
+        <% user.rsud = true %> 
+      <% } %>
     </div>
 
     <div class="container">

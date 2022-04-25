@@ -49,34 +49,70 @@
           <p id = "intro"> Welcome to your Dashboard</p>
           <h1>Enrolled Courses</h1>
             <ul>
-               <li>
-                 <div class="flip-card">
-                 <div class="flip-card-inner">
-                     <div class="flip-card-front">
-                       <img src="\assests\cube.jpg" alt="Cube" id = "course_image">
-                     </div>
-                     <div class="flip-card-back">
-                       <h4>HowToBasic</h4>
-                       <h1>Rubix Cube</h1>
-                       <button id = "register" ><a href="/sudokuCourses">Continue Learning...</a></button>
-                     </div>
-                 </div>
-               </div>
-             </li>
-             <li>
-               <div class="flip-card">
-                 <div class="flip-card-inner">
-                     <div class="flip-card-front">
-                       <img src="\assests\basketball.jpg" alt="Basket Ball" id = "course_image">
-                     </div>
-                     <div class="flip-card-back">
-                       <h4>HowToBasic</h4>
-                       <h1>Basket Ball</h1>
-                       <button id = "register" ><a href="/bbCourses">Continue Learning...</a></button>
-                     </div>
-                 </div>
-               </div>
-             </li>
+              <% if (user.rsud) { %>
+                <li>
+                  <div class="flip-card">
+                  <div class="flip-card-inner">
+                      <div class="flip-card-front">
+                        <img src="\assests\cube.jpg" alt="Cube" id = "course_image">
+                      </div>
+                      <div class="flip-card-back">
+                        <h4>HowToBasic</h4>
+                        <h1>Rubix Cube</h1>
+                        <button id = "register" ><a href="/sudokuCourses">Continue Learning...</a></button>
+                      </div>
+                  </div>
+                </div>
+                </li>   
+              <% } %>
+              <% if (user.rbb) { %>
+                <li>
+                  <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                          <img src="\assests\basketball.jpg" alt="Basket Ball" id = "course_image">
+                        </div>
+                        <div class="flip-card-back">
+                          <h4>HowToBasic</h4>
+                          <h1>Basket Ball</h1>
+                          <button id = "register" ><a href="/bbCourses">Continue Learning...</a></button>
+                        </div>
+                    </div>
+                  </div>
+                </li>
+              <% } %>
+              <% if (user.rguit) { %>
+                <li>
+                  <div class="flip-card">
+                  <div class="flip-card-inner">
+                      <div class="flip-card-front">
+                        <img src="\assests\guitar.jpg" alt="Cube" id = "course_image">
+                      </div>
+                      <div class="flip-card-back">
+                        <h4>HowToBasic</h4>
+                        <h1>Guitar</h1>
+                        <button id = "register" ><a href="/guitarCourses">Continue Learning...</a></button>
+                      </div>
+                  </div>
+                </div>
+              </li>
+              <% } %>
+             <% if (user.rchess) { %>
+              <li>
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                      <div class="flip-card-front">
+                        <img src="\assests\chess.jpg" alt="Basket Ball" id = "course_image">
+                      </div>
+                      <div class="flip-card-back">
+                        <h4>HowToBasic</h4>
+                        <h1>Chess</h1>
+                        <button id = "register" ><a href="/chessCourses">Continue Learning...</a></button>
+                      </div>
+                  </div>
+                </div>
+              </li>
+             <% } %>
            </ul>
           </div>
           <div id = "completed_courses">

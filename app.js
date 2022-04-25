@@ -2,10 +2,14 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const router = express.Router();
-const sqlite3 = require("sqlite3").verbose();
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const user = require('./models/user');
+
+let auth = false
+let sessionuser
+let admindata = {}
+let loginstate = false
 
 const uri = 'mongodb+srv://admin:admin123@howtobasic.xhoei.mongodb.net/HowToBasic?retryWrites=true&w=majority'
 
@@ -20,7 +24,6 @@ let credentials ={
     "password": "admin12345"
 }
 
-let db = new sqlite3.Database('userdetails.db');
 const bodyparser = require('body-parser');
 
 
@@ -36,49 +39,44 @@ app.use('/js', express.static(path.join(__dirname, 'js')))
 
 app.use('/route', router);
 
-
-app.get('/test',(req,res)=>{
-    const User = new user({
-        username: "admin",
-        password: "admin12345",
-        email: "admin@admin.com"
-    })
-
-    User.save()
-    .then(result => {console.log(result)})
-    .catch(err => {console.log(err)})
-})
-
 app.get('/', (req, res) => {
-    res.render('homepage');
+    if(sessionuser){
+        res.render('homepage',{user:sessionuser,state:loginstate});
+    }
+    else
+    res.render('homepage',{state:loginstate});
 });
 
 app.get('/bbCourses', (req, res) => {
+    if(sessionuser){
+        res.render('bbCourses',{user:sessionuser});
+    }
+    else
     res.render('bbCourses');
 });
 
-app.get('/bbExaminer', (req, res) => {
-    res.render('bbExaminer');
-});
-
 app.get('/chessCourses',(req, res)=>{
+    if(sessionuser){
+        res.render('chessCourses',{user:sessionuser});
+    }
+    else
     res.render('chessCourses');
 });
 
-app.get('/chessExaminer',(req, res)=>{
-    res.render('chessExaminer');
-});
-
 app.get('/contact',(req,res)=>{
+    if(sessionuser){
+        res.render('contactus',{user:sessionuser});
+    }
+    else
     res.render("contactus");
 });
 
 app.get('/guitarCourses',(req,res)=>{
+    if(sessionuser){
+        res.render('guitarCourses',{user:sessionuser});
+    }
+    else
     res.render('guitarCourses');
-});
-
-app.get('/guitarExaminer',(req,res)=>{
-    res.render('guitarExaminer');
 });
 
 app.get('/login',(req,res)=>{
@@ -90,26 +88,69 @@ app.get('/signup',(req,res)=>{
 });
 
 app.get('/profile',(req,res)=>{
-    res.render('profile');
+    if(sessionuser){
+        res.render('profile',{user:sessionuser});
+    }
+    else
+    res.redirect('/login');
+    
 });
 
 app.get('/my_courses',(req,res)=>{
-    res.render('my_courses');
+    if(sessionuser){
+        res.render('my_courses',{user:sessionuser});
+    }
+    else
+    res.redirect('/login');
 });
 
 app.get('/sudokuCourses',(req,res)=>{
+    if(sessionuser){
+        res.render('sudokuCourses',{user:sessionuser});
+    }
+    else
     res.render('sudokuCourses');
 });
 
 app.get('/examiner_dashboard',(req,res)=>{
-    res.render('examiner_dashboard');
+    if(auth==true)
+    res.render('examiner_dashboard',{data:admindata});
+    else
+    res.redirect('*');
 });
 app.get('/sudokuExaminer',(req,res)=>{
-    res.render('sudokuExaminer');
+    if(auth==true)
+    res.render('sudokuExaminer',{data:admindata});
+    else
+    res.redirect('*');
+});
+app.get('/guitarExaminer',(req,res)=>{
+    if(auth==true)
+    res.render('guitarExaminer',{data:admindata});
+    else
+    res.redirect('*');
+});
+app.get('/chessExaminer',(req, res)=>{
+    if(auth==true)
+    res.render('chessExaminer',{data:admindata});
+    else
+    res.redirect('*');
+});
+app.get('/bbExaminer', (req, res) => {
+    if(auth==true)
+    res.render('bbExaminer',{data:admindata});
+    else
+    res.redirect('*');
 });
 
 app.get('/about',(req,res)=>{
     res.render('about');
+});
+
+app.get('/logout',(req,res)=>{
+    sessionuser = undefined
+    loginstate = false
+    res.redirect('/');
 });
 
 app.get('*',(req,res)=>{
@@ -118,84 +159,56 @@ app.get('*',(req,res)=>{
 
 
 
-
-
-
-db.run("CREATE TABLE IF NOT EXISTS login (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password TEXT)");
-
-
 router.post('/login', (req, res)=>{
 
     let username = req.body.name;
     let password = req.body.password;
 
     if(username === credentials.username && password === credentials.password){
-        auth=true;
-        res.redirect('/examiner_dashboard');
-    }
-    else{
-    db.get("SELECT * FROM login WHERE username = ? AND password = ?", [username, password], (err, row)=>{
-        if(err){
-            res.status(500).send("Error logging in");
-        }
-        else{
-            if(row){
-                index = row.id;
-                res.redirect('/profile');
+        user.find({},(err,data)=>{
+            if(err){
+                console.log(err);
             }
             else{
-                res.status(404).send("Invalid username or password");
+                admindata = data
+                auth=true
+                res.redirect('/examiner_dashboard');
             }
-        }
-    });
+        })
+
+    }
+    else{
+        user.findOne({username: username, password: password}, function(err,data){
+            if(err){
+                console.log(err);
+            }
+            else{
+                if(!data){
+                    res.redirect('/login');
+                }
+                else{
+                    sessionuser = data;
+                    loginstate = true;
+                    res.redirect('/profile');
+                }
+            }
+        });
     }
 });
 
-router.get('/profile', (req, res) => {
-
-    db.get("SELECT * FROM login WHERE id = ?", [index], (err, row)=>{
-        if(err){
-            res.status(500).send("Error logging in");
-        }
-        else{
-            if(row){
-                res.render('profile', {username: row.username});
-            }
-            else{
-                res.status(404).send("Invalid username or password");
-            }
-        }
-    });
-})
-
 router.post('/signup',(req, res)=>{
-console.log(req.body);
-
-    db.run("INSERT INTO login (username, password) VALUES (?, ?)", [req.body.user, req.body.password1], function(err){
-        if(err){
-            console.log(err);
-            res.send("Error");
-        }
-    });
-    res.redirect('/profile');
-
-})
-
-router.get('/logout', (req ,res)=>{
-    req.session.destroy(function(err){
-        if(err){
-            console.log(err);
-            res.send("Error")
-        }else{
-            res.render('base', { title: "Express", logout : "logout Successfully...!"})
-        }
+    const User = new user({
+        username: req.body.user,
+        password: req.body.password1,
+        email: req.body.email
     })
-})
 
+    User.save()
+    .then(
+        sessionuser = User,
+        res.redirect('/profile')
+    )
+    .catch(err => {console.log(err)})
+})
 
 module.exports = router;
-
-
-
-
-

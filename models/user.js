@@ -14,7 +14,39 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-}, {timestamps: true})
+    rguit: {
+        type: Boolean,
+        default: false
+    },
+    comguit: {
+        type: Boolean,
+        default: false
+    },
+    rbb: {
+        type: Boolean,
+        default: false
+    },
+    combb: {
+        type: Boolean,
+        default: false
+    },
+    rsud: {
+        type: Boolean,
+        default: false
+    },
+    comsud: {
+        type: Boolean,
+        default: false
+    },
+    rchess: {
+        type: Boolean,
+        default: false
+    },
+    comchess: {
+        type: Boolean,
+        default: false
+    },
+}) 
 
 const User = mongoose.model("User", userSchema)
 module.exports = User

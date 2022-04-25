@@ -91,28 +91,16 @@ Group No.:- 23 -->
             <h2 class="white-text">Students enrolled</h2>
             <tr>
                 <th>Name</th>
-                <th>Student Id</th>                 
+                <th>Email</th>                 
             </tr>
-            <tr>
-                <td>Yash</td>
-                <td>E4567</td>                
-            </tr>
-            <tr>
-                <td>Yash</td>
-                <td>E4567</td>                
-            </tr>
-            <tr>
-                <td>Yash</td>
-                <td>E4567</td>                
-            </tr>
-            <tr>
-                <td>Yash</td>
-                <td>E4567</td>                
-            </tr>
+            <% for( let i = 0; i < data.length; i++ ) { %>
+              <% if (!data[i].rsud) { %>
                 <tr>
-                    <td>Yash</td>
-                    <td>E4567</td>                
+                  <td><%= data[i].username %></td>
+                  <td><%= data[i].email %></td>
                 </tr>
+              <% } %>
+            <% } %>
         </table>
 
       </div>
