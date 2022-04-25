@@ -7,6 +7,8 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const user = require('./models/user');
 
+let sessionuser
+
 const uri = 'mongodb+srv://admin:admin123@howtobasic.xhoei.mongodb.net/HowToBasic?retryWrites=true&w=majority'
 
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -35,19 +37,6 @@ app.use('/assests', express.static(path.join(__dirname, 'assests')))
 app.use('/js', express.static(path.join(__dirname, 'js')))
 
 app.use('/route', router);
-
-
-app.get('/test',(req,res)=>{
-    const User = new user({
-        username: "admin",
-        password: "admin12345",
-        email: "admin@admin.com"
-    })
-
-    User.save()
-    .then(result => {console.log(result)})
-    .catch(err => {console.log(err)})
-})
 
 app.get('/', (req, res) => {
     res.render('homepage');
@@ -116,14 +105,6 @@ app.get('*',(req,res)=>{
     res.render('Error404');
 });
 
-
-
-
-
-
-db.run("CREATE TABLE IF NOT EXISTS login (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password TEXT)");
-
-
 router.post('/login', (req, res)=>{
 
     let username = req.body.name;
@@ -134,64 +115,37 @@ router.post('/login', (req, res)=>{
         res.redirect('/examiner_dashboard');
     }
     else{
-    db.get("SELECT * FROM login WHERE username = ? AND password = ?", [username, password], (err, row)=>{
-        if(err){
-            res.status(500).send("Error logging in");
-        }
-        else{
-            if(row){
-                index = row.id;
-                res.redirect('/profile');
+        user.findOne({username: username, password: password}, function(err, user){
+            if(err){
+                console.log(err);
             }
             else{
-                res.status(404).send("Invalid username or password");
+                if(!user){
+                    res.redirect('/login');
+                }
+                else{
+                    sessionuser = user;
+                    res.render('profile', {user: user});
+                }
             }
-        }
-    });
+        });
     }
 });
 
-router.get('/profile', (req, res) => {
-
-    db.get("SELECT * FROM login WHERE id = ?", [index], (err, row)=>{
-        if(err){
-            res.status(500).send("Error logging in");
-        }
-        else{
-            if(row){
-                res.render('profile', {username: row.username});
-            }
-            else{
-                res.status(404).send("Invalid username or password");
-            }
-        }
-    });
-})
-
 router.post('/signup',(req, res)=>{
-console.log(req.body);
-
-    db.run("INSERT INTO login (username, password) VALUES (?, ?)", [req.body.user, req.body.password1], function(err){
-        if(err){
-            console.log(err);
-            res.send("Error");
-        }
-    });
-    res.redirect('/profile');
-
-})
-
-router.get('/logout', (req ,res)=>{
-    req.session.destroy(function(err){
-        if(err){
-            console.log(err);
-            res.send("Error")
-        }else{
-            res.render('base', { title: "Express", logout : "logout Successfully...!"})
-        }
+    const User = new user({
+        username: req.body.user,
+        password: req.body.password1,
+        email: req.body.email
     })
-})
 
+    User.save()
+    .then(
+        sessionuser = User,
+        res.redirect('/profile',{user: sessionuser})
+    )
+    .catch(err => {console.log(err)})
+})
 
 module.exports = router;
 

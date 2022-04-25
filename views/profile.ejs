@@ -22,21 +22,22 @@
             <nav>
                 <ul>
                     <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/my_courses">Courses</a></li>
-            <li><a href="/contact">Contact</a></li>
-            <li><a href="/login" style="color:#000">Login</a></li>
-             <li><a href="/signup" style="color:#000">Signup</a></li>
-             <li>
-              <a href="/profile"><img class="pfp" src="/assests/defaultpfp.png" /></a>
-            </li>
-        
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/my_courses">Courses</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/login" style="color:#000">Login</a></li>
+                    <li><a href="/signup" style="color:#000">Signup</a></li>
+                    <li>
+                        <a href="/profile"><img class="pfp" src="/assests/defaultpfp.png" /></a>
+                    </li>
+
                 </ul>
             </nav>
         </div>
     </header>
     <main>
-        <div id="modalform" class="modal fade" style="color: black;" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div id="modalform" class="modal fade" style="color: black;" tabindex="-1" role="dialog"
+            aria-labelledby="myModalLabel" aria-hidden="true" method="POST"> 
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -44,9 +45,6 @@
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body">
-                        <marquee>
-                            <img src="../assests/defaultpfp.png" class="pfpicon" id="profilepic">
-                        </marquee>
                         <ul>
                             <li>
                                 <label for="username">Username</label>
@@ -74,75 +72,91 @@
                 </div>
             </div>
         </div>
-            <div class="colorfill">
-                <img src="../assests/defaultpfp.png" alt="defaultpfp" class="profile">
-                <div class="level">
-                    <span>&#8203;</span>
-                </div>
+        <div class="colorfill">
+            <img src="../assests/defaultpfp.png" alt="defaultpfp" class="profile">
+            <div class="level">
+                <span>&#8203;</span>
             </div>
-            <div class="content">
-                <ul id="titlebar">
-                    <li>
-                        <div class="text-center center-div mt-5" id="login">
-                            <h2><%= locals.user ? user : "User" %></h2>
-                        </div>
-                    </li>
-                    <li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalform" style="background-color: #55d6aa; color:black">Edit Profile</button></li>
-                </ul>
-                <br>
-                <h2 style="text-align: center;">
-                    <b>Badges Earned</b>
-                </h2>
-                <br>
-                <ul>
-                    <li><img src="../assests/badges/pngegg.png" style="width: 100px; height: 100px;"></li>
-                    <li><img src="../assests/badges/pngwing.com.png" style="width: 100px; height: 100px;"></li>
-                    <li><img src="../assests/badges/basketball.jpg" style="width: 100px; height: 100px; border-radius: 50px;"></li>
-                    <li><img src="../assests/badges/sudoku.png" style="width: 100px; height: 100px;"></li>
-                </ul>
-                <ul>
-                    <li>
-                        <div class="info">Plectrum Guitar for beginners <br><br> Earned: <br> 29/04/2022<br>
-                            <ul>
-                                <li><img src="../assests/badges/fb.png" alt="facebook" style="width: 20px;height: 20px;"></li>
-                                <li><img src="../assests/badges/insta.png" alt="instagram" style="width: 20px;height: 20px;"></li>
-                                <li><img src="../assests/badges/pinterest.png" alt="pinterest" style="width: 20px;height: 20px;">
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="info">Chess course for beginners <br><br> Earned: <br> 24/05/2022 <br><br>
-                            <ul>
-                                <li><img src="../assests/badges/fb.png" alt="facebook" style="width: 20px;height: 20px;"></li>
-                                <li><img src="../assests/badges/insta.png" alt="instagram" style="width: 20px;height: 20px;"></li>
-                                <li><img src="../assests/badges/pinterest.png" alt="pinterest" style="width: 20px;height: 20px;">
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="info">Basics in Basketball dribbling <br><br> Earned: <br> 19/03/2022 <br><br>
-                            <ul>
-                                <li><img src="../assests/badges/fb.png" alt="facebook" style="width: 20px;height: 20px;"></li>
-                                <li><img src="../assests/badges/insta.png" alt="instagram" style="width: 20px;height: 20px;"></li>
-                                <li><img src="../assests/badges/pinterest.png" alt="pinterest" style="width: 20px;height: 20px;">
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="info">Basics in sudoku solving <br><br> Earned: <br> 12/06/2022 <br><br>
-                            <ul>
-                                <li><img src="../assests/badges/fb.png" alt="facebook" style="width: 20px;height: 20px;"></li>
-                                <li><img src="../assests/badges/insta.png" alt="instagram" style="width: 20px;height: 20px;"></li>
-                                <li><img src="../assests/badges/pinterest.png" alt="pinterest" style="width: 20px;height: 20px;">
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+        </div>
+        <div class="content">
+            <ul id="titlebar">
+                <li>
+                    <div class="text-center center-div mt-5" id="login">
+                        <h2>
+                            <%= user.username %>'s profile
+                        </h2>
+                    </div>
+                </li>
+                <li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalform"
+                        style="background-color: #55d6aa; color:black">Edit Profile</button></li>
+            </ul>
+            <br>
+            <h2 style="text-align: center;">
+                <b>Badges Earned</b>
+            </h2>
+            <br>
+            <ul>
+                <li><img src="../assests/badges/pngegg.png" style="width: 100px; height: 100px;"></li>
+                <li><img src="../assests/badges/pngwing.com.png" style="width: 100px; height: 100px;"></li>
+                <li><img src="../assests/badges/basketball.jpg"
+                        style="width: 100px; height: 100px; border-radius: 50px;"></li>
+                <li><img src="../assests/badges/sudoku.png" style="width: 100px; height: 100px;"></li>
+            </ul>
+            <ul>
+                <li>
+                    <div class="info">Plectrum Guitar for beginners <br><br> Earned: <br> 29/04/2022<br>
+                        <ul>
+                            <li><img src="../assests/badges/fb.png" alt="facebook" style="width: 20px;height: 20px;">
+                            </li>
+                            <li><img src="../assests/badges/insta.png" alt="instagram"
+                                    style="width: 20px;height: 20px;"></li>
+                            <li><img src="../assests/badges/pinterest.png" alt="pinterest"
+                                    style="width: 20px;height: 20px;">
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <div class="info">Chess course for beginners <br><br> Earned: <br> 24/05/2022 <br><br>
+                        <ul>
+                            <li><img src="../assests/badges/fb.png" alt="facebook" style="width: 20px;height: 20px;">
+                            </li>
+                            <li><img src="../assests/badges/insta.png" alt="instagram"
+                                    style="width: 20px;height: 20px;"></li>
+                            <li><img src="../assests/badges/pinterest.png" alt="pinterest"
+                                    style="width: 20px;height: 20px;">
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <div class="info">Basics in Basketball dribbling <br><br> Earned: <br> 19/03/2022 <br><br>
+                        <ul>
+                            <li><img src="../assests/badges/fb.png" alt="facebook" style="width: 20px;height: 20px;">
+                            </li>
+                            <li><img src="../assests/badges/insta.png" alt="instagram"
+                                    style="width: 20px;height: 20px;"></li>
+                            <li><img src="../assests/badges/pinterest.png" alt="pinterest"
+                                    style="width: 20px;height: 20px;">
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <div class="info">Basics in sudoku solving <br><br> Earned: <br> 12/06/2022 <br><br>
+                        <ul>
+                            <li><img src="../assests/badges/fb.png" alt="facebook" style="width: 20px;height: 20px;">
+                            </li>
+                            <li><img src="../assests/badges/insta.png" alt="instagram"
+                                    style="width: 20px;height: 20px;"></li>
+                            <li><img src="../assests/badges/pinterest.png" alt="pinterest"
+                                    style="width: 20px;height: 20px;">
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </main>
     <%- include('footer.html'); -%>
 </body>
