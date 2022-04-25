@@ -54,6 +54,18 @@ app.get('/bbCourses', (req, res) => {
     else
     res.render('bbCourses');
 });
+app.get('/bquiz', (req, res) => {
+    res.render('bquiz');
+});
+app.get('/cquiz', (req, res) => {
+    res.render('cquiz');
+});
+app.get('/gquiz', (req, res) => {
+    res.render('gquiz');
+});
+app.get('/squiz', (req, res) => {
+    res.render('squiz');
+});
 
 app.get('/chessCourses',(req, res)=>{
     if(sessionuser){

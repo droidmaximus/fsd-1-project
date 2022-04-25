@@ -170,4 +170,19 @@ nav a:hover::before {
   width: 100%;
 }
 
+.bttn1 {
+  
+  background-color: #55d6aa;
+  color: black;
+  font-size: 28px;
+  padding: 12px 20px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+/* .quiz {
+  font-size: 100px;
+} */
 
