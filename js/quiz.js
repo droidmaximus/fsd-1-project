@@ -22,7 +22,7 @@ var myQuestions = [
 var quizContainer = document.getElementById("quiz");
 var resultsContainer = document.getElementById("results");
 var submitButton = document.getElementById("submit");
-
+var step1= document.getElementById("step1");
 generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
 
 function generateQuiz(
@@ -98,17 +98,16 @@ function generateQuiz(
         numCorrect++;
 
         // color the answers green
-        answerContainers[i].style.color = "lightgreen";
-      }
-      // if answer is wrong or blank
-      else {
-        // color the answers red
-        answerContainers[i].style.color = "red";
       }
     }
 
     // show number of correct answers out of total
     resultsContainer.innerHTML = numCorrect + " out of " + questions.length;
+    if (numCorrect == questions.length) {
+      // changec();
+      step1.className="circle2"
+      
+    }
   }
 
   // show questions right away
@@ -119,3 +118,17 @@ function generateQuiz(
     showResults(questions, quizContainer, resultsContainer);
   };
 }
+function hide() {
+  document.getElementById("rButton").style.display = "none";
+}
+// function changec() {
+//   if (numCorrect == questions.length) {
+//     // changec();
+//     var element = document.getElementById("step1");
+//     element.classList.remove("circle")
+//     element.classList.add("circle2");
+//   }
+//   // var element = document.getElementById("step1");
+//   // element.className = "circle2";
+  
+// }

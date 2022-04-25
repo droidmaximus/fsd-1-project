@@ -37,8 +37,17 @@ app.get('/', (req, res) => {
 app.get('/bbCourses', (req, res) => {
     res.render('bbCourses');
 });
-app.get('/quiz', (req, res) => {
-    res.render('quiz');
+app.get('/bquiz', (req, res) => {
+    res.render('bquiz');
+});
+app.get('/cquiz', (req, res) => {
+    res.render('cquiz');
+});
+app.get('/gquiz', (req, res) => {
+    res.render('gquiz');
+});
+app.get('/squiz', (req, res) => {
+    res.render('squiz');
 });
 
 app.get('/bbExaminer', (req, res) => {
