@@ -26,6 +26,7 @@ header::after {
 .logo {
   float: left;
   font-weight: 800;
+  padding-left: 20px;
 }
 
 .pfp{
@@ -33,6 +34,7 @@ header::after {
   position: relative;
   width: 40px;
   height: 40px;
+  border: 0px;
 }
 nav {
   float: right;
@@ -47,6 +49,7 @@ nav ul {
 nav li {
   display: inline-block;
   margin-left: 70px;
+  padding-top: 5px;
   position: relative;
 }
 nav a {
@@ -64,13 +67,11 @@ nav a:hover {
 nav a::before {
   content: '';
   display: block;
-  height: 2px;
+  height: 5px;
   background-color: #444;
-
   position: absolute;
   top: 0;
   width: 0%;
-
   transition: all ease-in-out 250ms;
 }
 
