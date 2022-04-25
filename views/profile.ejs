@@ -52,65 +52,86 @@
             </h2>
             <br>
             <ul>
+                <% if (user.comguit) { %>
                 <li><img src="../assests/badges/pngegg.png" style="width: 100px; height: 100px;"></li>
+                <% } %>
+                <% if (user.comchess) { %>
                 <li><img src="../assests/badges/pngwing.com.png" style="width: 100px; height: 100px;"></li>
+                <% } %>
+                <% if (user.combb) { %>
                 <li><img src="../assests/badges/basketball.jpg"
                         style="width: 100px; height: 100px; border-radius: 50px;"></li>
+                <% } %>
+                <% if (user.comsud) { %>
                 <li><img src="../assests/badges/sudoku.png" style="width: 100px; height: 100px;"></li>
+                <% } %>
             </ul>
             <ul>
-                <li>
-                    <div class="info">Plectrum Guitar for beginners <br><br>
-                        <ul>
-                            <li><img src="../assests/badges/fb.png" alt="facebook" style="width: 20px;height: 20px;">
-                            </li>
-                            <li><img src="../assests/badges/insta.png" alt="instagram"
-                                    style="width: 20px;height: 20px;"></li>
-                            <li><img src="../assests/badges/pinterest.png" alt="pinterest"
-                                    style="width: 20px;height: 20px;">
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li>
-                    <div class="info">Chess course for beginners <br><br>
-                        <ul>
-                            <li><img src="../assests/badges/fb.png" alt="facebook" style="width: 20px;height: 20px;">
-                            </li>
-                            <li><img src="../assests/badges/insta.png" alt="instagram"
-                                    style="width: 20px;height: 20px;"></li>
-                            <li><img src="../assests/badges/pinterest.png" alt="pinterest"
-                                    style="width: 20px;height: 20px;">
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li>
-                    <div class="info">Basics in Basketball dribbling <br><br>
-                        <ul>
-                            <li><img src="../assests/badges/fb.png" alt="facebook" style="width: 20px;height: 20px;">
-                            </li>
-                            <li><img src="../assests/badges/insta.png" alt="instagram"
-                                    style="width: 20px;height: 20px;"></li>
-                            <li><img src="../assests/badges/pinterest.png" alt="pinterest"
-                                    style="width: 20px;height: 20px;">
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li>
-                    <div class="info">Basics in sudoku solving <br><br>
-                        <ul>
-                            <li><img src="../assests/badges/fb.png" alt="facebook" style="width: 20px;height: 20px;">
-                            </li>
-                            <li><img src="../assests/badges/insta.png" alt="instagram"
-                                    style="width: 20px;height: 20px;"></li>
-                            <li><img src="../assests/badges/pinterest.png" alt="pinterest"
-                                    style="width: 20px;height: 20px;">
-                            </li>
-                        </ul>
-                    </div>
-                </li>
+                <% if (user.comguit) { %>
+                    <li>
+                        <div class="info">Plectrum Guitar for beginners <br><br>
+                            <ul>
+                                <li><img src="../assests/badges/fb.png" alt="facebook" style="width: 20px;height: 20px;">
+                                </li>
+                                <li><img src="../assests/badges/insta.png" alt="instagram"
+                                        style="width: 20px;height: 20px;"></li>
+                                <li><img src="../assests/badges/pinterest.png" alt="pinterest"
+                                        style="width: 20px;height: 20px;">
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                 
+                <% } %>
+                
+                <% if (user.comchess) { %>
+                    <li>
+                        <div class="info">Chess course for beginners <br><br>
+                            <ul>
+                                <li><img src="../assests/badges/fb.png" alt="facebook" style="width: 20px;height: 20px;">
+                                </li>
+                                <li><img src="../assests/badges/insta.png" alt="instagram"
+                                        style="width: 20px;height: 20px;"></li>
+                                <li><img src="../assests/badges/pinterest.png" alt="pinterest"
+                                        style="width: 20px;height: 20px;">
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                <% } %>
+                <% if (user.combb) { %>
+                    <li>
+                        <div class="info">Basics in Basketball dribbling <br><br>
+                            <ul>
+                                <li><img src="../assests/badges/fb.png" alt="facebook" style="width: 20px;height: 20px;">
+                                </li>
+                                <li><img src="../assests/badges/insta.png" alt="instagram"
+                                        style="width: 20px;height: 20px;"></li>
+                                <li><img src="../assests/badges/pinterest.png" alt="pinterest"
+                                        style="width: 20px;height: 20px;">
+                                </li>
+                            </ul>
+                        </div>
+                    </li>    
+                <% } %>
+                
+                    <% if (user.comsud) { %>
+                        <li>
+                            <div class="info">Basics in sudoku solving <br><br>
+                                <ul>
+                                    <li><img src="../assests/badges/fb.png" alt="facebook" style="width: 20px;height: 20px;">
+                                    </li>
+                                    <li><img src="../assests/badges/insta.png" alt="instagram"
+                                            style="width: 20px;height: 20px;"></li>
+                                    <li><img src="../assests/badges/pinterest.png" alt="pinterest"
+                                            style="width: 20px;height: 20px;">
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                     
+                    <% } %>
+                    
             </ul>
         </div>
     </main>

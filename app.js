@@ -55,16 +55,16 @@ app.get('/bbCourses', (req, res) => {
     res.render('bbCourses');
 });
 app.get('/bquiz', (req, res) => {
-    res.render('bquiz');
+    res.render('bquiz',{user:sessionuser});
 });
 app.get('/cquiz', (req, res) => {
-    res.render('cquiz');
+    res.render('cquiz',{user:sessionuser});
 });
 app.get('/gquiz', (req, res) => {
-    res.render('gquiz');
+    res.render('gquiz',{user:sessionuser});
 });
 app.get('/squiz', (req, res) => {
-    res.render('squiz');
+    res.render('squiz',{user:sessionuser});
 });
 
 app.get('/chessCourses',(req, res)=>{

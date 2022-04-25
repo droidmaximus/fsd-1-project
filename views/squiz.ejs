@@ -37,8 +37,7 @@ Group No.:- 23 -->
             <li><a href="/about">About</a></li>
             <li><a href="/my_courses">Courses</a></li>
             <li><a href="/contact">Contact</a></li>
-            <li><a href="/login" style="color: #000">Login</a></li>
-            <li><a href="/signup" style="color: #000">Signup</a></li>
+            <li><a href="/logout" style="color: #000">Logout</a></li>
             <li>
               <a href="/profile"
                 ><img class="pfp" src="/assests/defaultpfp.png"
@@ -59,12 +58,12 @@ Group No.:- 23 -->
     <div class="white-text "id="results" style="font-size : 40px"></div>
     <br>
     <br>
-    <a href="/bbCourses">
+    <a href="/sudokuCourses">
     <button id="submit" class="bttn1">Go back to Course</button></a>
     </div>
     <br>
     <br>
-    
+    <% user.comsud = true %> 
     <%- include('footer.html'); -%>
     <script src="/js/quiz.js"></script>
   </body>
