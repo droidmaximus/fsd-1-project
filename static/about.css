@@ -1,10 +1,18 @@
-
 body {
-	margin: 0;
+	margin: auto;
 	background: #0E1016;
 	font-family: 'Work Sans', sans-serif;
-	font-weight: 800;
+  font-weight: 700;
 }
+.container4 {
+	width: 100%;
+  margin-right: 0px;
+	padding-left: 0px;
+  background: #55d6aa;
+  position:fixed;
+  z-index: 1;
+}
+
 header {
   background: #55d6aa;
 }
@@ -17,17 +25,15 @@ header::after {
 
 .logo {
   float: left;
+  font-weight: 800;
 }
 
 .pfp{
-    display: inline-block;
-    margin-left: 20px;
-    padding-top: 10px;
-    position: relative;
-    width: 30px;
-    height: 30px;
+  display: inline-block;
+  position: relative;
+  width: 40px;
+  height: 40px;
 }
-
 nav {
   float: right;
 }
@@ -41,11 +47,8 @@ nav ul {
 nav li {
   display: inline-block;
   margin-left: 70px;
-  padding-top: 5px;
-
   position: relative;
 }
-
 nav a {
   color: #444;
   text-decoration: none;
@@ -57,10 +60,11 @@ nav a:hover {
   color: #000;
 }
 
+
 nav a::before {
   content: '';
   display: block;
-  height: 5px;
+  height: 2px;
   background-color: #444;
 
   position: absolute;
@@ -75,6 +79,13 @@ nav a:hover::before {
 }
 
 
+ul > li {
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+
 html {
   box-sizing: border-box;
 }
@@ -84,6 +95,7 @@ html {
   text-align: center;
   background-color: #474e5d;
   color: white;
+  margin-top: 50px;
 }
 
 .about-section p{
