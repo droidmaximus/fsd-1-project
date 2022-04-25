@@ -34,8 +34,13 @@
             <li><a href="/about" style="color:#000">About</a></li>
             <li><a href="/my_courses" style="color:#000">Courses</a></li>
             <li><a href="/contact" style="color:#000">Contact</a></li>
-            <li><a href="/login" style="color:#000">Login</a></li>
+            <% if (state) { %>
+              <li><a href="/logout" style="color:#000">Logout</a></li>
+            <% } %>
+            <% if (!state) { %>
+              <li><a href="/login" style="color:#000">Login</a></li>
              <li><a href="/signup" style="color:#000">Signup</a></li>
+             <% } %>
              <li>
               <a href="/profile"><img class="pfp" src="/assests/defaultpfp.png" /></a>
             

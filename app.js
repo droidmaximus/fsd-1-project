@@ -77,10 +77,10 @@ app.get('/chessCourses',(req, res)=>{
 
 app.get('/contact',(req,res)=>{
     if(sessionuser){
-        res.render('contactus',{user:sessionuser});
+        res.render('contactus',{user:sessionuser,state:loginstate});
     }
     else
-    res.render("contactus");
+    res.render("contactus",{state:loginstate});
 });
 
 app.get('/guitarCourses',(req,res)=>{
@@ -110,7 +110,7 @@ app.get('/profile',(req,res)=>{
 
 app.get('/my_courses',(req,res)=>{
     if(sessionuser){
-        res.render('my_courses',{user:sessionuser});
+        res.render('my_courses',{user:sessionuser,state:loginstate});
     }
     else
     res.redirect('/login');
@@ -156,7 +156,10 @@ app.get('/bbExaminer', (req, res) => {
 });
 
 app.get('/about',(req,res)=>{
-    res.render('about');
+    if(sessionuser){
+        res.render('about',{user:sessionuser,state:loginstate});
+    }
+    res.render('about',{state:loginstate});
 });
 
 app.get('/logout',(req,res)=>{
