@@ -91,7 +91,7 @@ ul > li {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-#opt {
+.opt {
     border: 5px #444;
     color :#fff;
     font-size: small;
