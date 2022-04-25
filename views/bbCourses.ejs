@@ -41,7 +41,10 @@ Group No.:- 23 -->
     </header>
     <div class="divimg">
       <img class="courseImage" src="/assests/bb/bb.jpg" />
-      <button class="btn" id="rButton" onclick="hide()">Register</button>
+      <% if (!user.rbb) { %>
+        <button class="btn" id="rButton" onclick="hide()">Register</button>
+        <% user.rbb = true %> 
+      <% } %>
     </div>
 
     <div class="container">

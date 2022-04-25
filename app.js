@@ -2,12 +2,14 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const router = express.Router();
-const sqlite3 = require("sqlite3").verbose();
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const user = require('./models/user');
 
+let auth = false
 let sessionuser
+let admindata
+let loginstate = false
 
 const uri = 'mongodb+srv://admin:admin123@howtobasic.xhoei.mongodb.net/HowToBasic?retryWrites=true&w=majority'
 
@@ -22,7 +24,6 @@ let credentials ={
     "password": "admin12345"
 }
 
-let db = new sqlite3.Database('userdetails.db');
 const bodyparser = require('body-parser');
 
 
@@ -39,35 +40,38 @@ app.use('/js', express.static(path.join(__dirname, 'js')))
 app.use('/route', router);
 
 app.get('/', (req, res) => {
-    res.render('homepage');
+    if(sessionuser){
+        res.render('homepage',{user:sessionuser,state:loginstate});
+    }
+    res.render('homepage',{state:loginstate});
 });
 
 app.get('/bbCourses', (req, res) => {
+    if(sessionuser){
+        res.render('bbCourses',{user:sessionuser});
+    }
     res.render('bbCourses');
 });
 
-app.get('/bbExaminer', (req, res) => {
-    res.render('bbExaminer');
-});
-
 app.get('/chessCourses',(req, res)=>{
+    if(sessionuser){
+        res.render('chessCourses',{user:sessionuser});
+    }
     res.render('chessCourses');
 });
 
-app.get('/chessExaminer',(req, res)=>{
-    res.render('chessExaminer');
-});
-
 app.get('/contact',(req,res)=>{
+    if(sessionuser){
+        res.render('contactus',{user:sessionuser});
+    }
     res.render("contactus");
 });
 
 app.get('/guitarCourses',(req,res)=>{
+    if(sessionuser){
+        res.render('guitarCourses',{user:sessionuser});
+    }
     res.render('guitarCourses');
-});
-
-app.get('/guitarExaminer',(req,res)=>{
-    res.render('guitarExaminer');
 });
 
 app.get('/login',(req,res)=>{
@@ -79,31 +83,60 @@ app.get('/signup',(req,res)=>{
 });
 
 app.get('/profile',(req,res)=>{
-    res.render('profile');
+    if(sessionuser){
+        res.render('profile',{user:sessionuser});
+    }
+    else
+    res.redirect('/login');
+    
 });
 
 app.get('/my_courses',(req,res)=>{
-    res.render('my_courses');
+    if(sessionuser){
+        res.render('my_courses',{user:sessionuser});
+    }
+    else
+    res.redirect('/login');
 });
 
 app.get('/sudokuCourses',(req,res)=>{
+    if(sessionuser){
+        res.render('sudokuCourses',{user:sessionuser});
+    }
     res.render('sudokuCourses');
 });
-
+if(auth){
 app.get('/examiner_dashboard',(req,res)=>{
     res.render('examiner_dashboard');
 });
 app.get('/sudokuExaminer',(req,res)=>{
     res.render('sudokuExaminer');
 });
-
+app.get('/guitarExaminer',(req,res)=>{
+    res.render('guitarExaminer');
+});
+app.get('/chessExaminer',(req, res)=>{
+    res.render('chessExaminer');
+});
+app.get('/bbExaminer', (req, res) => {
+    res.render('bbExaminer');
+});
+}
 app.get('/about',(req,res)=>{
     res.render('about');
+});
+
+app.get('/logout',(req,res)=>{
+    sessionuser = undefined
+    loginstate = false
+    res.redirect('/');
 });
 
 app.get('*',(req,res)=>{
     res.render('Error404');
 });
+
+
 
 router.post('/login', (req, res)=>{
 
@@ -111,6 +144,7 @@ router.post('/login', (req, res)=>{
     let password = req.body.password;
 
     if(username === credentials.username && password === credentials.password){
+        
         auth=true;
         res.redirect('/examiner_dashboard');
     }
@@ -125,6 +159,7 @@ router.post('/login', (req, res)=>{
                 }
                 else{
                     sessionuser = user;
+                    loginstate = true;
                     res.render('profile', {user: user});
                 }
             }
@@ -148,8 +183,3 @@ router.post('/signup',(req, res)=>{
 })
 
 module.exports = router;
-
-
-
-
-

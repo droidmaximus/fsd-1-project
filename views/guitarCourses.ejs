@@ -41,7 +41,10 @@ Group No.:- 23 -->
     </header>
     <div class="divimg">
       <img class="courseImage" src="/assests/guitar/guitar.jpg  " />
-      <button class="btn" id="rButton" onclick="hide()">Register</button>
+      <% if (!user.rguit) { %>
+        <button class="btn" id="rButton" onclick="hide()">Register</button>
+        <% user.rguit = true %> 
+      <% } %>
     </div>
 
     <div class="container">
