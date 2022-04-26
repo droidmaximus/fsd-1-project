@@ -27,16 +27,3 @@
 
         return true;
     }
-
-    function open(b){
-        const option = b.value;
-        if(option == "basketball"){
-            
-        }
-        if(option == "chess"){
-
-        }
-        if(option == "sudoku"){
-            
-        }
-    }
