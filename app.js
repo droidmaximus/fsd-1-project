@@ -220,6 +220,7 @@ router.post('/signup',(req, res)=>{
 
     User.save()
     .then(
+        loginstate=true,
         sessionuser = User,
         res.redirect('/profile')
     )
